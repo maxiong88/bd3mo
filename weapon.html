@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>武器</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+</head>
+
+<body>
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid"></div>
+    </div>
+    <div class="header_title">武器</div>
+    <div class="header_menu">
+        <img src="./static/img/list@2x.png" alt="">
+    </div>
+</header>
+    <section class="weapon_wrap">
+        <div class="weapon_top_split">
+            <img src="./static/img/deco_up@2x.png" alt="">
+        </div>
+        <!-- 顶部搜索 -->
+        <div class="weapon_search">
+            <input class="weapon_search_ipt" type="search" placeholder="输入武器名字">
+            <div class="weapon_search_bg">
+                <img src="./static/img/search@2x.png" alt="">
+            </div>
+        </div>
+        <!-- 顶部tab -->
+        <div class="weapon_topbar box">
+            <div class="weapon_topbar01 weapon_topbar_item selected" data-type="1">
+                <img class="nosel hide" src="./static/img/weapon/pistol@2x.png" alt="">
+                <img class="sel" src="./static/img/weapon/pistol_chosen@2x.png" alt="">
+            </div>
+            <div class="weapon_topbar02 weapon_topbar_item" data-type="2">
+                <img class="nosel" src="./static/img/weapon/katana@2x.png" alt="">
+                <img class="sel hide" src="./static/img/weapon/kanata_chosen@2x.png" alt="">
+            </div>
+            <div class="weapon_topbar03 weapon_topbar_item" data-type="3">
+                <img class="nosel" src="./static/img/weapon/cannon@2x.png" alt="">
+                <img class="sel hide" src="./static/img/weapon/canon_chosen@2x.png" alt="">
+            </div>
+            <div class="weapon_topbar04 weapon_topbar_item" data-type="4">
+                <img class="nosel" src="./static/img/weapon/claymore@2x.png" alt="">
+                <img class="sel hide" src="./static/img/weapon/claymore_chosen@2x.png" alt="">
+            </div>
+            <div class="weapon_topbar05 weapon_topbar_item" data-type="5">
+                <img class="nosel" src="./static/img/weapon/cross@2x.png" alt="">
+                <img class="sel hide" src="./static/img/weapon/cross_chosen@2x.png" alt="">
+            </div>
+            <div class="weapon_topbar06 weapon_topbar_item" data-type="6">
+                <img class="nosel" src="./static/img/weapon/boxing@2x.png" alt="">
+                <img class="sel hide" src="./static/img/weapon/boxing_c@2x.png" alt="">
+            </div>
+        </div>
+        <!-- 武器列表 -->
+        <div class="scroll_list">
+            <div class="weapon_list clearfix" id="J-weaponBox">
+                <!-- 武器item -->
+                <!-- <div class="weapon_list_item">
+                    <a href="./weapon-detail.html">
+                        <div class="weapon_list_item_pic">
+                            <img src="./upload/yw_activity_03.png" alt="">
+                        </div>
+                        <div class="weapon_list_item_star">
+                            <div class="star_box"><img src="./static/img/weapon/star@2x.png" alt=""></div>
+                            <div class="star_box"><img src="./static/img/weapon/star@2x.png" alt=""></div>
+                            <div class="star_box"><img src="./static/img/weapon/star@2x.png" alt=""></div>
+                            <div class="star_box"><img src="./static/img/weapon/star@2x.png" alt=""></div>
+                        </div>
+                        <div class="weapon_list_item_weight">负重14</div>
+                        <div class="weapon_list_item_gongji">267</div>
+                        <div class="weapon_list_item_huixin">83</div>
+                        <div class="weapon_list_item_intro">BALABALABALABLABLABLABLABLABALABALABALABLABLABLABLABLABALABALABALABABLABLABLA</div>
+                        <div class="weapon_list_item_name">轩辕·脉冲手枪</div>
+                        <div class="weapon_list_item_bg"></div>
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <!--更多栏DOM -->
+    <section class="sidebar_wrap">
+    <header class="header_wrap">
+        <div class="index_title">
+            <img class="index_title_img" src="./static/img/title_logo@2x.png" alt="">
+        </div>
+        <div class="header_hide">
+            <img class="header_menu_img" src="./static/img/back_to_now@2x.png" alt="">
+        </div>
+    </header>
+    <div class="sidebar_content">
+        <div class="sidebar_content_title">
+            <a class="full-box" href="./edit-info.html">
+                <div class="sidebar_content_title_pic ver-mid">
+                    <img src="./upload/avatar_03.png" alt="">
+                </div>
+                <div class="side_content_title_name ver-mid">射射发抖</div>
+            </a>
+        </div>
+        <ul class="side_content_link">
+            <li class="side_content_link_item">
+                <a  href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/main_page@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">首页</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./team-recommen.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/team@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">通关队伍推荐</div>
+                </a>
+            </li>
+            <!-- <li class="side_content_link_item">
+                <a href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/photo@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">图片墙</div>
+                </a>
+            </li> -->
+            <li class="side_content_link_item">
+                <a href="./fleet-recruit.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/wanted@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">舰队招募</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./information.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/guides@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">资讯攻略</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./feedback.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/suggestion@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">意见反馈</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar_mask"></div>
+</section>
+    <!-- 武器列表 -->
+    <script type="text/html" id="J-tplList">
+        {{#for(var i in d){}}
+        <div class="weapon_list_item">
+            <a href="{{d[i].weapon_url}}">
+                <div class="weapon_list_item_pic">
+                    <img src="{{d[i].weapon_cover}}" alt="">
+                </div>
+                <div class="weapon_list_item_star">
+                    {{#for(var j=0;j<d[i].weapon_star;j++){}}
+                    <div class="star_box"><img src="./static/img/weapon/star@2x.png" alt=""></div>
+                    {{#}}}
+                </div>
+                <div class="weapon_list_item_gongji">{{d[i].weapon_gongji}}</div>
+                <div class="weapon_list_item_huixin">{{d[i].weapon_huixin}}</div>
+                <div class="weapon_list_item_intro">{{d[i].weapon_intro}}</div>
+                <div class="weapon_list_item_name">{{d[i].weapon_name}}</div>
+                <div class="weapon_list_item_bg"></div>
+            </a>
+        </div>
+        {{#}}}
+    </script>
+    <!-- <div class="weapon_list_item_weight">{{d[i].weapon_weight}}</div> -->
+    
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+<script src="./static/libs/fastclick.js"></script>
+<script src="./static/libs/ydui.js"></script>
+<script src="./static/libs/laytpl.min.js"></script>
+<script src="./static/js/utils.min.js"></script>
+<script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+            var wp = new bh.weapon();
+            // 1.模板2.容器3.页码4.每次请求/条数
+            wp.setDataApi('./data/weapon-list.json');
+            wp.init('#J-tplList','#J-weaponBox',1,10);
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>评论详情</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+</head>
+
+<body>
+    <input type="hidden" id="openId" value="1234567890">
+    <header class="header_wrap header_bot_bor">
+        <div class="header_back" onclick="window.history.back(-1);">
+            <div class="header_back_icon ver-mid">
+                <img src="./static/img/back@2x.png" alt="">
+            </div>
+            <div class="header_back_text ver-mid"></div>
+        </div>
+        <div class="header_title">评论详情</div>
+    </header>
+    <section class="MD_details_box p15">
+        <div>
+            <ul id="J-infoBox"></ul>
+        </div>
+
+    </section>
+    <div class="editor_box">
+        <div class="editor_box_1">
+            <input type="hidden" id="parentId">
+            <textarea name="editor_box_content" id="editor_box_content"></textarea>
+			<div>剩余字数：<span id="sy">300</span></div>
+            <div>
+                <a href="javascript:;" class="editor_box_qx">取消</a>
+                <a href="javascript:;" class="editor_box_tj">提交</a>
+            </div>
+        </div>
+    </div>
+    <!-- template -->
+    <script  type="text/html" id="J-tplCommentList">
+        {{#for(var i in d.comments){}}
+        <li>
+            <div class="details_tou">
+                <img src="{{d.comments[i].commentAuthorImg}}" alt="头像" class="tou_img">
+                <p>{{d.comments[i].commentAuthorName}}</p>
+            </div>
+            <div class="detals_msg">
+                <p>{{d.comments[i].commentContent}}</p>
+                <ul>
+                    {{#for(var j in d.comments[i].subMessages){}}
+                    <li>
+                        <div class="details_tou">
+                            <img src="{{d.comments[i].subMessages[j].msgAuthorImg}}" alt="头像" class="tou_img">
+                            <p>{{d.comments[i].subMessages[j].msgAuthorName}}</p>
+                            <span>{{d.comments[i].subMessages[j].tm}}</span>
+                        </div>
+                        <p>{{d.comments[i].subMessages[j].msgContent}}</p>
+                        {{#  if(d.comments[i].subMessages[j].msgAuthorId === parseInt($("#openId").val(), 10) ){ }}
+                        <div class="delbox">
+                            <span class="del fl" data-del="'del',{{d.comments[i].subMessages[j].msgId,1}}">删除</span> 
+                        </div>
+                        {{#  } }} 
+                    </li>
+                    {{#}}}
+                </ul>
+                <div class="details_func">
+                    <span class="time fl">{{d.comments[i].tm}}</span>
+                    {{#  if(d.comments[i].commentAuthorId ===parseInt($("#openId").val(), 10)){ }}
+                        <span class="del fl" data-del="'del',{{d.comments[i].commentId}},0">删除</span>
+                    {{#  } }} 
+                    {{# if(d.comments[i].zanByMe === 2){}}
+                    <span class="bad zan fr on" data-zan="'zan',{{d.comments[i].commentId}},2,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].caiCount}}</span></span>
+                    
+                    {{#  } else { }}
+                    <span class="bad zan fr " data-zan="'zan',{{d.comments[i].commentId}},2,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].caiCount}}</span></span>
+                    
+                    {{# } }}
+                    {{# if(d.comments[i].zanByMe === 1){}}
+                    <span class="good zan fr on" data-zan="'zan',{{d.comments[i].commentId}},1,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].zanCount}}</span></span>
+                    
+                    {{#  } else { }}
+                    <span class="good zan fr" data-zan="'zan',{{d.comments[i].commentId}},1,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].zanCount}}</span></span>
+                    
+                    {{# } }}
+                    <span class="comment fr" data-parentType="3" data-commentid="{{d.comments[i].commentId}}"><i></i><span>{{d.comments[i].subMsgCount}}</span></span>
+    
+                </div>
+            </div>  
+        </li>
+        {{#}}}
+    </script>
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+    <script src="./static/libs/fastclick.js"></script>
+    <script src="./static/libs/ydui.js"></script>
+    <script src="./static/libs/laytpl.min.js"></script>
+    <script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+            var openId = $("#openId").val();
+            var sl = new bh.commentDetails();
+            //接口 getAllSubComments  restfull openid
+            sl.setDataApi('./data/commentDetails.json','GET',openId, 2);
+            // 1.模板2.容器3.页码4.每次请求/条数
+            sl.init('#J-tplCommentList', '#J-infoBox', 1, 10);
+            if(getQueryString("msgId")){
+                $.ajax({
+                    type: "POST",
+                    url:'setMessageRead',
+                    dataType: "json",
+                    data: {
+                        openid:openId,
+                        msgId:getQueryString("msgId"),
+                        _csrf:"<?= Yii::$app->request->csrfToken ?>"
+                    },
+                    success:function(data){
+                        if(data.code === 0){
+
+                        }else{
+                            YDUI.dialog.alert(JSON.stringify(data.msg));
+                        }
+                    },
+                    error:function(err){
+                        YDUI.dialog.alert(JSON.stringify(err));
+                    }
+                })
+            }
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

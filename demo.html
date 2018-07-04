@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>demo</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+    <style media="screen">
+        body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!--[content start]-->
+    <div class="test">1</div>
+    <div class="m-slider" id="J_Slider">
+        <div class="slider-wrapper">
+            <div class="slider-item">
+                <a href="#">
+                    <img src="http://static.ydcss.com/uploads/ydui/1.jpg">
+                </a>
+            </div>
+            <div class="slider-item">
+                <a href="#">
+                    <img src="http://static.ydcss.com/uploads/ydui/2.jpg">
+                </a>
+            </div>
+            <div class="slider-item">
+                <a href="#">
+                    <img src="http://static.ydcss.com/uploads/ydui/3.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="slider-pagination"></div>
+        <!-- 分页标识 -->
+    </div>
+    <!--[content end]-->
+    <!-- 模板 勿动 -->
+    <script type="text/html" id="J-tplChapterList">
+        {{#for(var i in d){}}
+        <li>
+            <a href="{{d[i].read_url}}">
+                <span class="ellipsis read_title">{{d[i].chapter_name}}</span>
+                {{#if(d[i].foot){}}
+                <span class="fr mgr30 read_status type{{d[i].foot}}"></span>{{#}}} {{#if(d[i].notice){}}
+                <span class="fr mgr30 read_comeon">{{d[i].notice}}</span>{{#}}}
+            </a>
+        </li>
+        {{#}}}
+    </script>
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+<script src="./static/libs/fastclick.js"></script>
+<script src="./static/libs/ydui.js"></script>
+<script src="./static/libs/laytpl.min.js"></script>
+<script src="./static/js/utils.min.js"></script>
+<script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+            $('#J_Slider').slider({
+                speed: 200,
+                autoplay: 2000,
+                lazyLoad: true
+            });
+            YDUI.dialog.confirm('自定义按钮', '我有一个小毛驴我从来也不骑！', [{
+                    txt: '取消',
+                    color: false,
+                    /* false:黑色  true:绿色 或 使用颜色值 */
+                    callback: function () {
+                        YDUI.dialog.toast('你点了取消', 'none', 1000);
+                    }
+                },
+                {
+                    txt: '犹豫一下',
+                    stay: true,
+                    /* 是否保留提示框 */
+                    color: '#CCC',
+                    /* 使用颜色值 */
+                    callback: function () {
+                        YDUI.dialog.toast('别犹豫了', 'none', 1000);
+                    }
+                },
+                {
+                    txt: '确定',
+                    color: true,
+                    callback: function () {
+                        YDUI.dialog.toast('你点了确定', 'none', 1000);
+                    }
+                }
+            ]);
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

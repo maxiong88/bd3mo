@@ -1,0 +1,91 @@
+#MD_guanli{
+    padding: 0 .2rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: right;;
+}
+.MD_check{
+    display: none;
+    position: absolute;
+    right: .2rem;
+    top: .2rem;
+    width: .52rem;
+    height: .52rem;
+    background: url(../img/choose_non@2x.png) no-repeat;
+    background-size: cover;
+    z-index: 10;
+}
+.MD_check.on{
+    background: url(../img/choose_yes@2x.png) no-repeat;
+    background-size: cover;
+}
+.tipbox{
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0, 0, .5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: none;
+}
+.tipbox1{
+    width: 5.18rem;
+    height: 2.97rem;
+    background: url(../img/popup@2x.png) no-repeat;
+    background-size: cover;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -1.48rem 0 0 -2.59rem;
+    z-index: 101;
+    display: none;
+}
+.tipbox2{
+    width: 4.48rem;
+    height: 2.97rem;
+    background: url(../img/popup2@2x.png) no-repeat;
+    background-size: cover;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -1.48rem 0 0 -2.24rem;
+    z-index: 101;
+    display: none;
+}
+.tipfooter{
+    text-align: center;
+    height: .71rem;
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.tipfooter .item1{
+    width: 1.62rem;
+    height: .51rem;
+    background: url(../img/cancel@2x.png) no-repeat;
+    background-size:cover;
+    display:inline-block;
+    margin-left: .5rem;
+}
+.tipfooter .item2{
+    width: 1.62rem;
+    height: .51rem;
+    background: url(../img/certain@2x.png) no-repeat;
+    background-size:cover;
+    display:inline-block;
+   
+}
+.team_recommen_item_title > div{
+    position: relative;
+}
+.team_recommen_item_title > div .MD_check{
+    right: 0;
+    top: 0;
+}
+.team_recommen_item .MD_check{
+    width: .4rem !important;
+    height: .4rem !important;
+}

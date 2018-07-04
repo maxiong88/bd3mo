@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>资讯攻略详情</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+    <style>
+        body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="hidden" id="openId" value="1234567890">
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid"></div>
+    </div>
+    <div class="header_title">文章名称</div>
+    <div class="header_menu">
+        <img src="./static/img/list@2x.png" alt="">
+    </div>
+</header>
+    <section class="information_detail_wrap">
+        <div class="information_detail_top_split">
+            <img src="./static/img/deco_up@2x.png" alt="">
+        </div>
+        <div class="information_detail_content">
+            <h1>大量妹子，欢迎小伙伴踊跃加入，一起开车吧</h1>
+            <dl class="headimg clearfix">
+                <dt class="fl">
+                    <img src="./upload/avatar_03.png" alt="">
+                </dt>
+                <dd class="fl">
+                    <h5>MASIAD</h5>
+                    <span>9月26日</span>
+                    <span>14:08</span>
+                </dd>
+            </dl>
+            <!-- 内容 -->
+            <div class="detail_content">  
+                <p class="article">见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！</p>
+                <p class="article">见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！见团里有非常多的妹子！！！！！</p>
+                <div class="articleImg">
+                    <img src="./upload/youwen_banner_02.png" alt="">
+                </div>
+                <div class="articleImg">
+                    <img src="./upload/avatar_02.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">作者版权保留 请勿私自转载</div>
+        <div class="bottom-line">
+            <img src="./static/img/personal/devide_line@2x.png" alt="">
+        </div>
+        <div class="MD_details_box">
+            <div class="sort_num">
+                <span><i></i><em>1000</em></span>
+                <span data-sortp="2"  id="sortTime"></span>
+                <span data-parentType="1" id="publishComment"></span>
+            </div>
+            <div>
+                <ul id="J-infoBox">
+
+                </ul>
+            </div>
+        </div>
+    </section>
+   
+    <!--更多栏DOM -->
+    <section class="sidebar_wrap">
+    <header class="header_wrap">
+        <div class="index_title">
+            <img class="index_title_img" src="./static/img/title_logo@2x.png" alt="">
+        </div>
+        <div class="header_hide">
+            <img class="header_menu_img" src="./static/img/back_to_now@2x.png" alt="">
+        </div>
+    </header>
+    <div class="sidebar_content">
+        <div class="sidebar_content_title">
+            <a class="full-box" href="./edit-info.html">
+                <div class="sidebar_content_title_pic ver-mid">
+                    <img src="./upload/avatar_03.png" alt="">
+                </div>
+                <div class="side_content_title_name ver-mid">射射发抖</div>
+            </a>
+        </div>
+        <ul class="side_content_link">
+            <li class="side_content_link_item">
+                <a  href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/main_page@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">首页</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./team-recommen.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/team@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">通关队伍推荐</div>
+                </a>
+            </li>
+            <!-- <li class="side_content_link_item">
+                <a href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/photo@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">图片墙</div>
+                </a>
+            </li> -->
+            <li class="side_content_link_item">
+                <a href="./fleet-recruit.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/wanted@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">舰队招募</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./information.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/guides@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">资讯攻略</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./feedback.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/suggestion@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">意见反馈</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar_mask"></div>
+</section>
+    <div class="editor_box">
+        <div class="editor_box_1">
+            <input type="hidden" id="parentId">
+            <textarea name="editor_box_content" id="editor_box_content"></textarea>
+            <div>
+                <a href="javascript:;" class="editor_box_qx">取消</a>
+                <a href="javascript:;" class="editor_box_tj">提交</a>
+            </div>
+        </div>
+    </div>
+    <!-- 模板 -->
+    <script  type="text/html" id="J-tplCommentList">
+        {{#for(var i in d.comments){}}
+        <li>
+            <div class="details_tou">
+                <img src="{{d.comments[i].commentAuthorImg}}" alt="头像" class="tou_img">
+                <p>{{d.comments[i].commentAuthorName}}</p>
+            </div>
+            <div class="detals_msg">
+                <p>{{d.comments[i].commentContent}}</p>
+                <ul>
+                    {{#for(var j in d.comments[i].subMessages){}}
+                    <li>
+                        <div class="details_tou">
+                            <img src="{{d.comments[i].subMessages[j].msgAuthorImg}}" alt="头像" class="tou_img">
+                            <p>{{d.comments[i].subMessages[j].msgAuthorName}}</p>
+                            <span>{{d.comments[i].subMessages[j].tm}}</span>
+                        </div>
+                        <p>{{d.comments[i].subMessages[j].msgContent}}</p>
+                        {{#  if(d.comments[i].subMessages[j].msgAuthorId === parseInt($("#openId").val(), 10) ){ }}
+                        <div class="delbox">
+                            <span class="del fl" data-del="'del',{{d.comments[i].subMessages[j].msgId,1}}">删除</span> 
+                        </div>
+                        {{#  } }} 
+                    </li>
+                    {{#}}}
+                </ul>
+                <div class="details_func">
+                    <span class="time fl">{{d.comments[i].tm}}</span>
+                    {{#  if(d.comments[i].commentAuthorId ===parseInt($("#openId").val(), 10)){ }}
+                        <span class="del fl" data-del="'del',{{d.comments[i].commentId}},0">删除</span>
+                    {{#  } }} 
+                    {{# if(d.comments[i].zanByMe === 2){}}
+                    <span class="bad zan fr on" data-zan="'zan',{{d.comments[i].commentId}},2,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].caiCount}}</span></span>
+                    
+                    {{#  } else { }}
+                    <span class="bad zan fr " data-zan="'zan',{{d.comments[i].commentId}},2,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].caiCount}}</span></span>
+                    
+                    {{# } }}
+                    {{# if(d.comments[i].zanByMe === 1){}}
+                    <span class="good zan fr on" data-zan="'zan',{{d.comments[i].commentId}},1,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].zanCount}}</span></span>
+                    
+                    {{#  } else { }}
+                    <span class="good zan fr" data-zan="'zan',{{d.comments[i].commentId}},1,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].zanCount}}</span></span>
+                    
+                    {{# } }}
+                    <span class="comment fr" data-parentType="3" data-commentid="{{d.comments[i].commentId}}"><i></i><span>{{d.comments[i].subMsgCount}}</span></span>
+    
+                </div>
+            </div>  
+        </li>
+        {{#}}}
+    </script>
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+    <script src="./static/libs/fastclick.js"></script>
+    <script src="./static/libs/ydui.js"></script>
+    <script src="./static/libs/laytpl.min.js"></script>
+    <script src="./static/js/utils.min.js"></script>
+    <script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+            var sl = new bh.commentDetails();
+            var openId = $("openId").val();
+            sl.setDataApi('./data/commentDetails.json',"GET", openId,2);
+            // 1.模板2.容器3.页码4.每次请求/条数
+            sl.init('#J-tplCommentList', '#J-infoBox', 1, 10, 2);
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

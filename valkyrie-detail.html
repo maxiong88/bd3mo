@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>女武神详情</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+    <style>
+        body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid"></div>
+    </div>
+    <div class="header_title">女武神详情</div>
+    <div class="header_menu">
+        <img src="./static/img/list@2x.png" alt="">
+    </div>
+</header>
+    <section class="valkyrie_detail_wrap">
+        <div class="valkyrie_detail_list_split">
+            <img src="./static/img/devide_up@2x.png" alt="">
+        </div>
+        <!-- 头图 -->
+        <div class="valkyrie_detail_banner">
+            <img src="./upload/7f5ea21c799.jpg" alt="" class="bannnerImg">
+            <!-- <span class="collect">
+                <img src="./static/img/collect_yet@2x.png" alt="">
+            </span> -->
+            <!-- <div class="valkyrie_detail_banner_bg"></div> -->
+        </div>
+        <!-- tab切换 -->
+        <div class="valkyrie_detail_tab">
+            <!-- 顶部tab -->
+            <div class="valkyrie_detail_tab01 valkyrie_detail_tab_item selected" data-type="1">
+                <img class="nosel hide" src="./static/img/valkyrie/data@2x.png" alt="">
+                <img class="sel" src="./static/img/valkyrie/data_chosen@2x.png" alt="">
+            </div>
+            <div class="valkyrie_detail_tab02 valkyrie_detail_tab_item" data-type="2">
+                <img class="nosel" src="./static/img/valkyrie/skil@2x.png" alt="">
+                <img class="sel hide" src="./static/img/valkyrie/skill_chosen@2x.png" alt="">
+            </div>
+            <div class="valkyrie_detail_tab03 valkyrie_detail_tab_item" data-type="3">
+                <img class="nosel" src="./static/img/valkyrie/comment@2x.png" alt="">
+                <img class="sel hide" src="./static/img/valkyrie/comment_chosen@2x.png" alt="">
+            </div>
+            <div class="valkyrie_detail_tab04 valkyrie_detail_tab_item" data-type="4">
+                <img class="nosel" src="./static/img/valkyrie/suggestion@2x.png" alt="">
+                <img class="sel hide" src="./static/img/valkyrie/suggestion_chosen@2x.png" alt="">
+            </div>
+        </div>
+        <!-- 内容 -->
+        <div class="valkyrie_detail_content">
+            <!-- 角色资料 -->
+            <div class="valkyrie_detail_tabcon">
+                <div class="valkyrie_info">
+                    <!-- 基本信息 -->
+                    <div class="valkyrie_info_top">
+                        <div class="valkyrie_info_top_left">
+                            <p>战场疾风</p>
+                            <p>Murata Himeko</p>
+                            <p>林簌</p>
+                        </div>
+                        <div class="valkyrie_info_top_right">
+                            <p>疾风、姬子少校</p>
+                            <p>6月11日</p>
+                            <p>田中理惠</p>
+                        </div>
+                        <div class="valkyrie_info_top_bg"></div>
+                    </div>
+                    <div class="split-bottom-grey"></div>
+                    <!-- 角色数据 -->
+                    <div class="valkyrie_info_data">
+                        <div class="valkyrie_info_title">
+                            <img src="./static/img/valkyrie/charactor_record@2x.png" alt="">
+                        </div>
+                        <div class="valkyrie_text_tip">以角色80级属性</div>
+                        <div class="valkyrie_info_table">
+                            <div class="valkyrie_info_table_list fr clearfix">
+                                <span class="fl">12332</span>
+                                <span class="fl">123</span>
+                                <span class="fl">124</span>
+                                <span class="fl">125</span>
+                                <span class="fl">1266</span>
+                            </div>
+                            <div class="valkyrie_info_table_list fr clearfix">
+                                <span class="fl">12</span>
+                                <span class="fl">123</span>
+                                <span class="fl">12443</span>
+                                <span class="fl">125</span>
+                                <span class="fl">1266</span>
+                            </div>
+                            <div class="valkyrie_info_table_list fr clearfix">
+                                <span class="fl">12</span>
+                                <span class="fl">123</span>
+                                <span class="fl">1234</span>
+                                <span class="fl">125</span>
+                                <span class="fl">1266</span>
+                            </div>
+                            <div class="valkyrie_info_table_list fr clearfix">
+                                <span class="fl">12</span>
+                                <span class="fl">1323</span>
+                                <span class="fl">124</span>
+                                <span class="fl">125</span>
+                                <span class="fl">1266</span>
+                            </div>
+                            <div class="valkyrie_info_table_list fr clearfix">
+                                <span class="fl">1233</span>
+                                <span class="fl">123</span>
+                                <span class="fl">124</span>
+                                <span class="fl">125</span>
+                                <span class="fl">1266</span>
+                            </div>
+                            <div class="valkyrie_info_table_bg"></div>
+                        </div>
+                        <div class="valkyrie_info_split_bg"></div>
+                    </div>
+                    <div class="split-bottom-grey"></div>
+                    <!-- 获取方式 -->
+                    <div class="valkyrie_info_get">
+                        <div class="valkyrie_info_title">
+                            <img src="./static/img/valkyrie/way_to_get@2x.png" alt="">
+                        </div>
+                        <div class="valkyrie_info_gettype">
+                            <p>精准补给，标配补给</p>
+                            <p>友情补给、关卡2-9，关卡4-1</p>
+                            <div class="valkyrie_info_gettype_bg"></div>
+                        </div>
+                        <div class="valkyrie_info_split_bg"></div>
+                    </div>
+                    <div class="split-bottom-grey"></div>
+                    <!-- 解锁方式 -->
+                    <div class="valkyrie_info_unlock">
+                        <div class="valkyrie_info_title">
+                            <img src="./static/img/valkyrie/way_to_unlock@2x.png" alt="">
+                        </div>
+                        <!-- A -->
+                        <div class="valkyrie_info_unlock_pic">
+                            <div class="valkyrie_info_unlock_pic_l"><img src="./static/img/valkyrie/A@2x.png" alt=""></div>
+                            <div class="valkyrie_info_unlock_pic_r">
+                               x50
+                            </div>
+                            <div class="valkyrie_info_unlock_bg"></div>
+                        </div>
+                        <!-- S -->
+                        <div class="valkyrie_info_unlock_pic">
+                            <div class="valkyrie_info_unlock_pic_l"><img src="./static/img/valkyrie/s@2x.png" alt=""></div>
+                            <div class="valkyrie_info_unlock_pic_r">
+                                x80
+                            </div>
+                            <div class="valkyrie_info_unlock_bg"></div>
+                        </div>
+                        <!-- SS -->
+                        <div class="valkyrie_info_unlock_pic">
+                            <div class="valkyrie_info_unlock_pic_l"><img src="./static/img/valkyrie/ss@2x.png" alt=""></div>
+                            <div class="valkyrie_info_unlock_pic_r">
+                                x100
+                            </div>
+                            <div class="valkyrie_info_unlock_bg"></div>
+                        </div>
+                        <!-- SSS -->
+                        <div class="valkyrie_info_unlock_pic">
+                            <div class="valkyrie_info_unlock_pic_l"><img src="./static/img/valkyrie/sss@2x.png" alt=""></div>
+                            <div class="valkyrie_info_unlock_pic_r">
+                                x200
+                            </div>
+                            <div class="valkyrie_info_unlock_bg"></div>
+                        </div>
+                        <div class="valkyrie_info_split_bg"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 技能介绍 -->
+            <div class="valkyrie_detail_tabcon skillIntroduce_wrap hide">
+                <div class="skillIntroduce_top">
+                    <ul class="skillIntroduce_top_itembox">
+                        <li>高</li>
+                        <li>中</li>
+                        <li>高</li>
+                        <li>低</li>
+                    </ul>
+                    <div class="skillIntroduce_top_bg"></div>
+                </div>
+                <div class="skillIntroduce_list">
+                    <div class="skillIntroduce_item">
+                        <dl>
+                            <dt>
+                                <div class="skillIntroduce_item_pic">
+                                    <img src="./upload/avatar_03.png" alt="">
+                                </div>
+                                <div class="skillIntroduce_item_bg"></div>
+                            </dt>
+                            <dd>
+                                <h3>[蓄力-重剑]</h3>
+                                <span class="bottom_gray"><img src="./static/img/devide_of_name@2x.png" alt=""></span>
+                                <p>冲刺过程中进行大范围横扫冲刺过程中进行大范围横扫冲刺过程中进行大范围横扫冲刺过程中进行大范围横扫冲刺过程中进行大范围横扫</p>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="skillIntroduce_item">
+                        <dl>
+                            <dt>
+                                <div class="skillIntroduce_item_pic">
+                                    <img src="./upload/avatar_03.png" alt="">
+                                </div>
+                                <div class="skillIntroduce_item_bg"></div>
+                            </dt>
+                            <dd>
+                                <h3>[蓄力-重剑]</h3>
+                                <span class="bottom_gray"><img src="./static/img/devide_of_name@2x.png" alt=""></span>
+                                <p>冲刺过程中进行大范围横扫冲刺过程中进行大范围横扫冲刺过程中进行大范围横扫冲刺过程中进行大范围横扫冲刺过程中进行大范围横扫</p>
+                                <span class="articleImg"><a href="javascript:;"><img src="./upload/youwen_banner_04.png" alt=""></a></span>   
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <!-- 角色评价 -->
+            <div class="valkyrie_detail_tabcon hide">
+                <div class="valkyrie_info valkyrie_evaluate">
+                    <!-- 评语 -->
+                    <div class="valkyrie_evaluate_py">
+                        <div class="valkyrie_info_title">
+                            <img src="./static/img/valkyrie/pingyu@2x.png" alt="">
+                        </div>
+                        <div class="valkyrie_evaluate_py_text">
+                            无量塔机子的生物属性装甲战场疾风无量塔机子的生物属性装甲战场疾风无量塔机子的生物属性装甲战场疾风无量塔机子的生物属性装甲战场疾风无量塔机子的生物属性装甲战场疾风无量塔机子的生物属性装甲战场疾风无量塔机子的生物属性装甲战场疾风
+                        </div>
+                        <div class="valkyrie_info_split_bg"></div>
+                    </div>
+                    <div class="split-bottom-grey"></div>
+                    <!-- 装甲能力评价 -->
+                    <div class="valkyrie_evaluate_zjnl">
+                        <div class="valkyrie_info_title_lang">
+                            <img src="./static/img/valkyrie/zhuangjianengli@2x.png" alt="">
+                        </div>
+                        <div class="valkyrie_evaluate_zjnl_con">
+                            <div class="valkyrie_evaluate_con_l">
+                                <p>伤害</p>
+                                <p>控制</p>
+                                <p>霸道</p>
+                                <p>协作</p>
+                                <p>填充</p>
+                            </div>
+                            <div class="valkyrie_evaluate_con_r">
+                                <!-- progress:控制进度 trailColor:控制进度条颜色 -->
+                                <div class="progress-bar" data-ydui-progressbar="{progress: .6, trailColor: '#f39800', type: 'line', strokeWidth: 1, strokeColor:'#fff'}"><span>3</span></div>
+                                <div class="progress-bar" data-ydui-progressbar="{progress: 1, trailColor: '#f39800', type: 'line', strokeWidth: 1, strokeColor:'#fff'}"><span>5</span></div>
+                                <div class="progress-bar" data-ydui-progressbar="{progress: 0, trailColor: '#f39800', type: 'line', strokeWidth: 1, strokeColor:'#fff'}"><span>0</span></div>
+                                <div class="progress-bar" data-ydui-progressbar="{progress: .1, trailColor: '#f39800', type: 'line', strokeWidth: 1, strokeColor:'#fff'}"><span>1</span></div>
+                                <div class="progress-bar" data-ydui-progressbar="{progress: .9, trailColor: '#f39800', type: 'line', strokeWidth: 1, strokeColor:'#fff'}"><span>5</span></div> 
+                            </div>
+                            <div class="valkyrie_evaluate_zjnl_con_bg"></div>
+                        </div>
+                        <div class="valkyrie_info_split_bg"></div>
+                    </div>
+                    <div class="split-bottom-grey"></div>
+                    <!-- 场景适应能力 -->
+                    <div class="valkyrie_evaluate_cjsy">
+                        <div class="valkyrie_info_title_lang">
+                            <img src="./static/img/valkyrie/shiyingnenlgi@2x.png" alt="">
+                        </div>
+                        <div class="valkyrie_evaluate_cjsy_con">
+                            <div class="valkyrie_evaluate_con_l">
+                                <p>无尽深渊</p>
+                                <p>记忆战场</p>
+                                <p>Raid联机</p>
+                            </div>
+                            <div class="valkyrie_evaluate_con_r">
+                                <div class="progress-bar" data-ydui-progressbar="{progress: .6, trailColor: '#8c97cb', type: 'line', strokeWidth: 1, strokeColor:'#fff'}"><span>3</span></div>
+                                <div class="progress-bar" data-ydui-progressbar="{progress: 1, trailColor: '#8c97cb', type: 'line', strokeWidth: 1, strokeColor:'#fff'}"><span>5</span></div>
+                                <div class="progress-bar" data-ydui-progressbar="{progress: .9, trailColor: '#8c97cb', type: 'line', strokeWidth: 1, strokeColor:'#fff'}"><span>5</span></div> 
+                            </div>
+                            <div class="valkyrie_evaluate_cjsy_con_bg"></div>
+                        </div>
+                        <div class="valkyrie_info_split_bg"></div>
+                    </div>
+                    <div class="split-bottom-grey"></div>
+                    <!-- 战斗数据 -->
+                    <div class="valkyrie_evaluate_zdsj">
+                        <div class="valkyrie_info_title">
+                            <img src="./static/img/valkyrie/zhandoushuju@2x.png" alt="">
+                        </div>
+                        <!-- 特性 -->
+                        <div class="valkyrie_evaluate_zdsj_con">
+                            <div class="valkyrie_evaluate_zdsj_con_title">特性</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">浮空 强力单控 时空锁定</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg"></div>
+                        </div>
+                        <!-- 常规攻击基础 -->
+                        <div class="valkyrie_evaluate_zdsj_con2">
+                            <div class="valkyrie_evaluate_zdsj_con_title">常规攻击基础</div>
+                            <div class="valkyrie_evaluate_zdsj_con_left">常规攻击模式</div>
+                            <div class="valkyrie_evaluate_zdsj_con_right">普通攻击四连</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">650%</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg2"></div>
+                        </div>
+                        <!-- 常规攻击成长 -->
+                        <div class="valkyrie_evaluate_zdsj_con">
+                            <div class="valkyrie_evaluate_zdsj_con_title">常规攻击成长</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">0%</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg"></div>
+                        </div>
+                        <!-- 常规攻击射程 -->
+                        <div class="valkyrie_evaluate_zdsj_con">
+                            <div class="valkyrie_evaluate_zdsj_con_title">常规攻击射程</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">近距离</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg"></div>
+                        </div>
+                        <!-- 常规攻击范围 -->
+                        <div class="valkyrie_evaluate_zdsj_con">
+                            <div class="valkyrie_evaluate_zdsj_con_title">常规攻击范围</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">小</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg"></div>
+                        </div>
+                        <!-- 常规攻击破盾能力 -->
+                        <div class="valkyrie_evaluate_zdsj_con">
+                            <div class="valkyrie_evaluate_zdsj_con_title">常规攻击破盾能力</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">强</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg"></div>
+                        </div>
+                        <!-- 爆发攻击基础 -->
+                        <div class="valkyrie_evaluate_zdsj_con2">
+                            <div class="valkyrie_evaluate_zdsj_con_title">爆发攻击基础</div>
+                            <div class="valkyrie_evaluate_zdsj_con_left">爆发攻击模式</div>
+                            <div class="valkyrie_evaluate_zdsj_con_right">必杀技</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">1200%</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg2"></div>
+                        </div>
+                        <!-- 爆发攻击成长 -->
+                        <div class="valkyrie_evaluate_zdsj_con">
+                            <div class="valkyrie_evaluate_zdsj_con_title">爆发攻击成长</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">0%</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg"></div>
+                        </div>
+                        <!-- 爆发攻击范围 -->
+                        <div class="valkyrie_evaluate_zdsj_con">
+                            <div class="valkyrie_evaluate_zdsj_con_title">爆发攻击范围</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">中</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg"></div>
+                        </div>
+                        <!-- 爆发攻击破盾能力 -->
+                        <div class="valkyrie_evaluate_zdsj_con">
+                            <div class="valkyrie_evaluate_zdsj_con_title">爆发攻击破盾能力</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">强</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg"></div>
+                        </div>
+                        <!-- 角色技能加成 -->
+                        <div class="valkyrie_evaluate_zdsj_con">
+                            <div class="valkyrie_evaluate_zdsj_con_title">角色技能加成</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">较低</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg"></div>
+                        </div>
+                        <!-- 毕业装备适应性 -->
+                        <div class="valkyrie_evaluate_zdsj_con">
+                            <div class="valkyrie_evaluate_zdsj_con_title">毕业装备适应性</div>
+                            <div class="valkyrie_evaluate_zdsj_con_text">强</div>
+                            <div class="valkyrie_evaluate_zdsj_con_bg"></div>
+                        </div>
+                        <div class="valkyrie_info_split_bg"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 队伍及装备搭配 -->
+            <div class="valkyrie_detail_tabcon hide">
+                <div class="valkyrie_info valkyrie_team">
+                    <!-- 强力队伍搭配 -->
+                    <div class="valkyrie_team_qldwdp" style="display:none;">
+                        <div class="valkyrie_info_title_lang">
+                            <img src="./static/img/valkyrie/dapei@2x.png" alt="">
+                        </div>
+                        <div class="valkyrie_team_qldwdp_con">
+                            <!-- 无尽深渊 -->
+                            <div class="valkyrie_team_qldwdp_con_item">
+                                <div class="valkyrie_team_qldwdp_con_title">
+                                    <img src="./static/img/valkyrie/banner_of_form1@2x.png" alt="">
+                                </div>
+                                <!-- 成员 -->
+                                <div class="valkyrie_team_qldwdp_con_main">
+                                    <div class="valkyrie_team_qldwdp_con_main_top clearfix">
+                                        <div class="valkyrie_team_qldwdp_con_main_top_l fl">队长</div>
+                                        <div class="valkyrie_team_qldwdp_con_main_top_r fl">队员</div>
+                                    </div>
+                                    <!-- 队伍 -->
+                                    <div class="valkyrie_team_qldwdp_con_main_bot">
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_qldwdp_con_main_bot_item clearfix">
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_qldwdp_con_main_bot_item clearfix">
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_qldwdp_con_main_bot_item clearfix">
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 详细技能 -->
+                                <div class="valkyrie_team_qldwdp_con_main_detail hide">
+                                    <!-- 技能01 -->
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                    <!-- 技能02 -->
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                </div>
+                                <div class="valkyrie_team_qldwdp_con_btn">
+                                    <img class="nosel" src="./static/img/valkyrie/key_skill@2x.png" alt="">
+                                    <img class="sel hide" src="./static/img/valkyrie/retract@2x.png" alt="">
+                                </div>
+                            </div>
+                            <!-- RAID联机 -->
+                            <div class="valkyrie_team_qldwdp_con_item">
+                                <div class="valkyrie_team_qldwdp_con_title">
+                                    <img src="./static/img/valkyrie/banner_of_form2@2x.png" alt="">
+                                </div>
+                                <!-- 成员 -->
+                                <div class="valkyrie_team_qldwdp_con_main">
+                                    <div class="valkyrie_team_qldwdp_con_main_top clearfix">
+                                        <div class="valkyrie_team_qldwdp_con_main_top_l fl">队长</div>
+                                        <div class="valkyrie_team_qldwdp_con_main_top_r fl">队员</div>
+                                    </div>
+                                    <!-- 队伍 -->
+                                    <div class="valkyrie_team_qldwdp_con_main_bot">
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_qldwdp_con_main_bot_item clearfix">
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_qldwdp_con_main_bot_item clearfix">
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_qldwdp_con_main_bot_item clearfix">
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_qldwdp_con_main_bot_item clearfix">
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 详细技能 -->
+                                <div class="valkyrie_team_qldwdp_con_main_detail hide">
+                                    <!-- 技能01 -->
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                    <!-- 技能02 -->
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                </div>
+                                <div class="valkyrie_team_qldwdp_con_btn">
+                                    <img class="nosel" src="./static/img/valkyrie/key_skill@2x.png" alt="">
+                                    <img class="sel hide" src="./static/img/valkyrie/retract@2x.png" alt="">
+                                </div>
+                            </div>
+                            <!-- 记忆战场 -->
+                            <div class="valkyrie_team_qldwdp_con_item">
+                                <div class="valkyrie_team_qldwdp_con_title">
+                                    <img src="./static/img/valkyrie/banner_of_form3@2x.png" alt="">
+                                </div>
+                                <!-- 成员 -->
+                                <div class="valkyrie_team_qldwdp_con_main">
+                                    <div class="valkyrie_team_qldwdp_con_main_top clearfix">
+                                        <div class="valkyrie_team_qldwdp_con_main_top_l fl">队长</div>
+                                        <div class="valkyrie_team_qldwdp_con_main_top_r fl">队员</div>
+                                    </div>
+                                    <!-- 队伍 -->
+                                    <div class="valkyrie_team_qldwdp_con_main_bot">
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_qldwdp_con_main_bot_item clearfix">
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 详细技能 -->
+                                <div class="valkyrie_team_qldwdp_con_main_detail hide">
+                                    <!-- 技能01 -->
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                    <!-- 技能02 -->
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                </div>
+                                <div class="valkyrie_team_qldwdp_con_btn">
+                                    <img class="nosel" src="./static/img/valkyrie/key_skill@2x.png" alt="">
+                                    <img class="sel hide" src="./static/img/valkyrie/retract@2x.png" alt="">
+                                </div>
+                            </div>
+                            <!-- 记忆战场RPC -->
+                            <div class="valkyrie_team_qldwdp_con_item">
+                                <div class="valkyrie_team_qldwdp_con_title">
+                                    <img src="./static/img/valkyrie/banner_of_form4@2x.png" alt="">
+                                </div>
+                                <!-- 成员 -->
+                                <div class="valkyrie_team_qldwdp_con_main">
+                                    <div class="valkyrie_team_qldwdp_con_main_top clearfix">
+                                        <div class="valkyrie_team_qldwdp_con_main_top_l fl">队长</div>
+                                        <div class="valkyrie_team_qldwdp_con_main_top_r fl">队员</div>
+                                    </div>
+                                    <!-- 队伍 -->
+                                    <div class="valkyrie_team_qldwdp_con_main_bot">
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_qldwdp_con_main_bot_item clearfix">
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 详细技能 -->
+                                <div class="valkyrie_team_qldwdp_con_main_detail hide">
+                                    <!-- 技能01 -->
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                </div>
+                                <div class="valkyrie_team_qldwdp_con_btn">
+                                    <img class="nosel" src="./static/img/valkyrie/key_skill@2x.png" alt="">
+                                    <img class="sel hide" src="./static/img/valkyrie/retract@2x.png" alt="">
+                                </div>
+                            </div>
+                            <div class="valkyrie_team_qldwdp_con_bg"></div>
+                        </div>
+                        <div class="valkyrie_info_split_bg"></div>
+                    </div>
+                    <div class="split-bottom-grey" style="display:none;"></div>
+                    <!-- 装备推荐 -->
+                    <div class="valkyrie_team_zbtj">
+                        <div class="valkyrie_info_title">
+                            <img src="./static/img/valkyrie/zhuangbei@2x.png" alt="">
+                        </div>
+                        <div class="valkyrie_team_zbtj_con">
+                            <!-- 过渡单件 -->
+                            <div class="valkyrie_team_zbtj_con_item">
+                                <div class="valkyrie_team_zbtj_con_title">
+                                    <img src="./static/img/valkyrie/guodu@2x.png" alt="">
+                                </div>
+                                <!-- 成员 -->
+                                <div class="valkyrie_team_zbtj_con_main">
+                                    <div class="valkyrie_team_zbtj_con_main_top box">
+                                        <div class="main_top_item flex-1">武器</div>
+                                        <div class="main_top_item flex-1">圣痕-上</div>
+                                        <div class="main_top_item flex-1">圣痕-中</div>
+                                        <div class="main_top_item flex-1">圣痕-下</div>
+                                    </div>
+                                    <!-- 队伍 -->
+                                    <div class="valkyrie_team_zbtj_con_main_bot">
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_zbtj_con_main_bot_item box">
+                                            <div class="item_img flex-1">
+											<img src="http://test.bh3.uuboku.com/data/uploads/all/201803/e6b8396a012.png" alt="">
+											<p>1武器</p>
+											</div>
+                                            <div class="item_img flex-1">
+											<img src="./upload/youwen_mp_qrcode_01.png" alt="">
+											<p>1武器</p>
+											</div>
+                                            <div class="item_img flex-1">
+											<img src="./upload/avatar_02.png" alt="">
+											<p>1武器</p>
+											</div>
+                                            <div class="item_img flex-1">
+											<img src="./upload/avatar_02.png" alt="">
+											<p>1武器</p>
+											</div>
+                                            <!-- <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 详细技能 -->
+                                <div class="valkyrie_team_zbtj_con_main_detail hide">
+                                    <!-- 技能01 -->
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                </div>
+                                <div class="valkyrie_team_zbtj_con_btn">
+                                    <img class="nosel" src="./static/img/valkyrie/key_skill@2x.png" alt="">
+                                    <img class="sel hide" src="./static/img/valkyrie/retract@2x.png" alt="">
+                                </div>
+                            </div>
+                            <!-- 进阶单件 -->
+                            <!--div class="valkyrie_team_zbtj_con_item">
+                                <div class="valkyrie_team_zbtj_con_title">
+                                    <img src="./static/img/valkyrie/jinjie@2x.png" alt="">
+                                </div>
+                                
+                                <div class="valkyrie_team_zbtj_con_main">
+                                    <div class="valkyrie_team_zbtj_con_main_top box">
+                                        <div class="main_top_item flex-1">武器</div>
+                                        <div class="main_top_item flex-1">圣痕-上</div>
+                                        <div class="main_top_item flex-1">圣痕-中</div>
+                                        <div class="main_top_item flex-1">圣痕-下</div>
+                                    </div>
+                                    
+                                    <div class="valkyrie_team_zbtj_con_main_bot">
+                                        
+                                        <div class="valkyrie_team_zbtj_con_main_bot_item box">
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                        
+                                        <div class="valkyrie_team_zbtj_con_main_bot_item box">
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                        
+                                        <div class="valkyrie_team_zbtj_con_main_bot_item box">
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                                <div class="valkyrie_team_zbtj_con_main_detail hide">
+                                 
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                </div>
+                                <div class="valkyrie_team_zbtj_con_btn">
+                                    <img class="nosel" src="./static/img/valkyrie/key_skill@2x.png" alt="">
+                                    <img class="sel hide" src="./static/img/valkyrie/retract@2x.png" alt="">
+                                </div>
+                            </div-->
+                            <!-- 毕业组合 -->
+                            <div class="valkyrie_team_zbtj_con_item">
+                                <div class="valkyrie_team_zbtj_con_title">
+                                    <img src="./static/img/valkyrie/biye@2x.png" alt="">
+                                </div>
+                                <!-- 成员 -->
+                                <div class="valkyrie_team_zbtj_con_main">
+                                    <div class="valkyrie_team_zbtj_con_main_top box">
+                                        <div class="main_top_item flex-1">武器</div>
+                                        <div class="main_top_item flex-1">圣痕-上</div>
+                                        <div class="main_top_item flex-1">圣痕-中</div>
+                                        <div class="main_top_item flex-1">圣痕-下</div>
+                                    </div>
+                                    <!-- 队伍 -->
+                                    <div class="valkyrie_team_zbtj_con_main_bot">
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_zbtj_con_main_bot_item box">
+                                            <div class="item_img flex-1">
+												<img src="http://test.bh3.uuboku.com/data/uploads/all/201803/e6b8396a012.png" alt="">
+												<p>ask的哈萨克好的卡的时刻ask觉得就卡死的寄卡升级的阿斯顿阿斯顿</p>
+											</div>
+                                            <div class="item_img flex-1">
+												<img src="http://test.bh3.uuboku.com/data/uploads/all/201801/2e528570a16.png" alt="">
+												<p>ask的哈萨克好的卡的时刻ask觉得就卡死的寄卡升级的阿斯顿阿斯顿</p>
+											</div>
+                                            <div class="item_img flex-1">
+											
+												<img src="http://test.bh3.uuboku.com/data/uploads/all/201801/2e528570a16.png" alt="">
+												<p>a死的寄卡顿</p>
+											</div>
+                                            <div class="item_img flex-1">
+											
+												<img src="http://test.bh3.uuboku.com/data/uploads/all/201801/2e528570a16.png" alt="">
+												<p>ask的哈萨克好的卡的时刻ask觉得就卡死的寄卡升级的阿斯顿阿斯顿</p>
+											</div>
+                                        </div>
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_zbtj_con_main_bot_item box">
+                                            <div class="item_img flex-1"><img src="http://test.bh3.uuboku.com/data/uploads/all/201801/2e528570a16.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                        <!-- 队伍成员-横排 -->
+                                        <div class="valkyrie_team_zbtj_con_main_bot_item box">
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="item_img flex-1"><img src="./upload/avatar_02.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 详细技能 -->
+                                <div class="valkyrie_team_zbtj_con_main_detail hide">
+                                    <!-- 技能01 -->
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                    <!-- 技能01 -->
+                                    <div class="main_detail_item">
+                                        <div class="detail_item_title">
+                                            <div class="detail_item_title_img ver-mid"><img src="./upload/avatar_02.png" alt=""></div>
+                                            <div class="detail_item_title_text ver-mid">[蓄力-重剑]</div>
+                                        </div>
+                                        <div class="detail_item_text">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                                        <div class="detail_item_text2">真炎角色优缺点分析评价真炎角色优价</div>
+                                    </div>
+                                </div>
+                                <div class="valkyrie_team_zbtj_con_btn">
+                                    <img class="nosel" src="./static/img/valkyrie/key_skill@2x.png" alt="">
+                                    <img class="sel hide" src="./static/img/valkyrie/retract@2x.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="split-bottom-grey"></div>
+        <!-- 公用列表 -->
+        <div class="valkyrie_info_itembox scroll_list">
+            <div class="valkyrie_info_title">
+                <img src="./static/img/valkyrie/guidss_about@2x.png" alt="">
+            </div>
+            <div class="valkyrie_info_split_bg"></div>
+            <!-- 公用列表 -->
+            <div class="valkyrie_info_list_itembox" id="J-infoBox">
+
+            </div>
+        </div>
+    </section>
+    <!--更多栏DOM -->
+    <section class="sidebar_wrap">
+    <header class="header_wrap">
+        <div class="index_title">
+            <img class="index_title_img" src="./static/img/title_logo@2x.png" alt="">
+        </div>
+        <div class="header_hide">
+            <img class="header_menu_img" src="./static/img/back_to_now@2x.png" alt="">
+        </div>
+    </header>
+    <div class="sidebar_content">
+        <div class="sidebar_content_title">
+            <a class="full-box" href="./edit-info.html">
+                <div class="sidebar_content_title_pic ver-mid">
+                    <img src="./upload/avatar_03.png" alt="">
+                </div>
+                <div class="side_content_title_name ver-mid">射射发抖</div>
+            </a>
+        </div>
+        <ul class="side_content_link">
+            <li class="side_content_link_item">
+                <a  href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/main_page@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">首页</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./team-recommen.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/team@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">通关队伍推荐</div>
+                </a>
+            </li>
+            <!-- <li class="side_content_link_item">
+                <a href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/photo@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">图片墙</div>
+                </a>
+            </li> -->
+            <li class="side_content_link_item">
+                <a href="./fleet-recruit.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/wanted@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">舰队招募</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./information.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/guides@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">资讯攻略</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./feedback.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/suggestion@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">意见反馈</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar_mask"></div>
+</section>
+    <!-- 资讯 模板 -->
+    <script type="text/html" id="J-tplList">
+        {{#for(var i in d){}}
+        <a href="{{d[i].info_url}}">
+            <div class="pub_news_item box">
+                <div class="pub_news_item_left">
+                    <img src="{{d[i].info_cover}}" alt="">
+                    <div class="pub_news_border"></div>
+                </div>
+                <div class="pub_news_item_right flex-1">
+                    <div class="pub_news_item_title">{{d[i].info_title}}</div>
+                    <div class="pub_news_item_content ellipsis-two">{{d[i].info_intro}}</div>
+                    <div class="pub_news_item_info box">
+                        <span>{{d[i].info_date}}</span>
+                        <span>作者：{{d[i].info_auth}}</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {{#}}}
+    </script>
+    <!--script start-->
+
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+<script src="./static/libs/fastclick.js"></script>
+<script src="./static/libs/ydui.js"></script>
+<script src="./static/libs/laytpl.min.js"></script>
+<script src="./static/js/utils.min.js"></script>
+<script src="./static/js/common.min.js"></script>
+
+    <script>
+        $(function () {
+            var vd = new bh.valkyrie();
+            vd.init();
+
+            var sl = new bh.scrollList();
+            sl.setDataApi('./data/information.json');
+            // 1.模板2.容器3.页码4.每次请求/条数
+            sl.init('#J-tplList','#J-infoBox',1,10);
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>武器详情</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+</head>
+
+<body>
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid"></div>
+    </div>
+    <div class="header_title">武器详情</div>
+    <div class="header_menu">
+        <img src="./static/img/list@2x.png" alt="">
+    </div>
+</header>
+    <section class="weapon-detail_wrap">
+        <div class="weapon-detail_list_split">
+            <img src="./static/img/devide_up@2x.png" alt="">
+        </div>
+        <div class="weapon-detail_banner">
+            <img src="./upload/youwen_banner_03.png" alt="" class="bannnerImg">
+            <img src="./static/img/valkyrie/vein_pic_for_charactor@2x.png" alt="" class="bannerBg">
+            <!-- <span class="collect">
+                <img src="./static/img/collect@2x.png" alt="">
+            </span> -->
+        </div>
+		<div class="weapon_detail_tab_bg">
+			<!-- 顶部tab -->
+            <div class="weapon_detail_tab01 weapon_detail_tab_item selected" data-type="1">
+                <img class="nosel hide" src="./static/img/weapon/weapondata30@2x.png" alt="">
+                <img class="sel" src="./static/img/weapon/weapondata@2x.png" alt="">
+            </div>
+            <div class="weapon_detail_tab02 weapon_detail_tab_item" data-type="2">
+                <img class="nosel" src="./static/img/weapon/weapontest30@2x.png" alt="">
+                <img class="sel hide" src="./static/img/weapon/weapontest@2x.png" alt="">
+            </div>
+		</div>
+		<!-- 内容 -->
+        <div class="weapon_detail_content">
+			<!-- 武器资料 -->
+            <div class="weapon_detail_tabcon">
+				<div class="weapon-detail-banner-article">
+					<p>战国时代战国时代战国时代战国时代战国时代战国时代战国时代战国时代战国时代战国时代战国时代</p>
+				</div>
+				<div class="weapon-detail-gray-line"></div>
+				<div class="weapon-detail-data-cont">
+					<div class="weapon-detail-data-tit"><img src="./static/img/weapon/data_of_weapon@2x.png" alt=""></div>
+					<div class="weapon-detail-data-info">
+						<p>
+							<i class="star"><img src="./static/img/weapon/star@2x.png" alt=""></i>
+							<i class="star"><img src="./static/img/weapon/star@2x.png" alt=""></i>
+							<i class="star"><img src="./static/img/weapon/star@2x.png" alt=""></i>
+							<i class="star"><img src="./static/img/weapon/star@2x.png" alt=""></i>
+							<i class="star"><img src="./static/img/weapon/star@2x.png" alt=""></i>
+						</p>
+						<p>
+							23
+						</p>
+						<!--<p>323</p>-->
+						<p>23</p>
+					</div>
+				</div>
+				<div class="weapon-detail-gray-line"></div>
+				<!-- 技能 -->
+				<div class="weapon-detail-data-cont">
+					<div class="weapon-detail-data-tit"><img src="./static/img/weapon/skill_of_weapon@2x.png" alt=""></div>
+					<!-- 技能Item -->
+					<div class="weapon-detail-skill-cont skill1">
+						<div class="weapon-detail-skill-tit clearfix"><h2 class="fr">泪眼鬼火</h2></div>
+						<div class="weapon-detail-skill-content">
+							<h5>34234343434</h5>
+							<p>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</p>
+							<p>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</p>
+							<p>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</p>
+							<p>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</p>
+
+						</div>
+					</div>
+					<div class="weapon-detail-skill-cont skill2">
+						<div class="weapon-detail-skill-tit clearfix"><h2 class="fr">泪眼鬼火</h2></div>
+						<div class="weapon-detail-skill-content">
+							<h5>34234343434</h5>
+							<p>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</p>
+						</div>
+					</div>
+					<div class="weapon-detail-skill-cont skill3">
+						<div class="weapon-detail-skill-tit clearfix"><h2 class="fr">泪眼鬼火</h2></div>
+						<div class="weapon-detail-skill-content">
+							<h5>34234343434</h5>
+							<p>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</p>
+						</div>
+					</div>
+					<div class="weapon-detail-skill-cont skill4">
+						<div class="weapon-detail-skill-tit clearfix"><h2 class="fr">泪眼鬼火</h2></div>
+						<div class="weapon-detail-skill-content">
+							<h5>34234343434</h5>
+							<p>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 武器评测 -->
+			<div class="weapon_detail_tabcon weapon_pingce_box hide">
+				<div class="weapon_MD_part1">
+					<div class="jsspd"></div>
+					
+						<ul class="peidu">
+                            <li>
+                                    <div class="img_art">
+                                        <img src="./static/img/weapon/kanata_chosen@2x.png">
+                                        <p>杀杀杀</p>
+                                    </div>
+                                    <div class="img_txt">
+                                        <div class="srco_baring">
+                                            <i class="s1"></i>
+                                            <i class="s2"></i>
+                                            <i class="s3"></i>
+                                            <i class="s4"></i>
+                                            <div class="srco_baring_1" style="width:90%"></div>                                     
+                                        </div>
+                                        <p class="ellipsis-two">这里是文丧失殆尽就阿这里是文丧失殆尽就阿斯利康的急啊抗衰老的就卡死的哈数据库的哈萨克的哈可视电话就卡死的斯利康的急啊抗衰老的就卡死的哈数据库的哈萨克的哈可视电话就卡死的</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="img_art">
+                                        <img src="./static/img/weapon/kanata_chosen@2x.png">
+                                        <p>杀杀杀</p>
+                                    </div>
+                                    <div class="img_txt">
+                                        <div class="srco_baring">
+                                            <i class="s1"></i>
+                                            <i class="s2"></i>
+                                            <i class="s3"></i>
+                                            <i class="s4"></i>
+                                            <div class="srco_baring_1" style="width:55%"></div>                                     
+                                        </div>
+                                        <p class="ellipsis-two">这里是文丧失殆尽就阿这里是文丧失殆尽就阿斯利康的急啊抗衰老的就卡死的哈数据库的哈萨克的哈可视电话就卡死的斯利康的急啊抗衰老的就卡死的哈数据库的哈萨克的哈可视电话就卡死的</p>
+                                    </div>
+                                </li>
+							<li>
+								<div class="img_art">
+									<img src="./static/img/weapon/kanata_chosen@2x.png">
+									<p>杀杀杀</p>
+								</div>
+								<div class="img_txt">
+									<div class="srco_baring">
+                                        <i class="s1"></i>
+                                        <i class="s2"></i>
+                                        <i class="s3"></i>
+                                        <i class="s4"></i>
+                                        <div class="srco_baring_1" style="width:10%"></div>                                     
+									</div>
+									<p class="ellipsis-two">这里是文丧失殆尽就阿这里是文丧失殆尽就阿斯利康的急啊抗衰老的就卡死的哈数据库的哈萨克的哈可视电话就卡死的斯利康的急啊抗衰老的就卡死的哈数据库的哈萨克的哈可视电话就卡死的</p>
+								</div>
+							</li>
+						</ul>
+					
+				</div>
+				<div class="weapon_MD_part2">
+					<div class="wqpc"></div>
+					<div class="pingyu">
+						<p>
+							啊速度加快和啦数据库的和哈萨克经理电话啊时间考虑活动就卡死了好的
+							加拉塞克寒假打算离婚的几口拉屎就ADSL和的加拉塞克和大家ask了的哈撒
+							开绿灯阿迪斯
+						</p>
+						<p>
+							啊速度加快和啦数据库的和哈萨克经理电话啊时间考虑活动就卡死了好的
+							加拉塞克寒假打算离婚的几口拉屎就ADSL和的加拉塞克和大家ask了的哈撒
+							开绿灯阿迪斯
+						</p>
+					</div>
+				</div>
+				<div class="weapon_MD_part3">
+					<img src="./static/img/weapon/a.jpg">
+				</div>
+				
+			</div>
+		</div>
+        <div class="weapon-detail-gray-line"></div>
+        <!-- 公用列表 -->
+        <div class="weapon-detail-data-cont scroll_list">
+            <div class="weapon-detail-data-tit">
+                <img src="./static/img/valkyrie/guidss_about@2x.png" alt="">
+            </div>
+            <div class="valkyrie_info_split_bg"></div>
+            <!-- 公用列表 -->
+            <div class="valkyrie_info_list_itembox" id="J-infoBox">
+
+            </div>
+        </div>
+    </section>
+    <!--更多栏DOM -->
+    <section class="sidebar_wrap">
+    <header class="header_wrap">
+        <div class="index_title">
+            <img class="index_title_img" src="./static/img/title_logo@2x.png" alt="">
+        </div>
+        <div class="header_hide">
+            <img class="header_menu_img" src="./static/img/back_to_now@2x.png" alt="">
+        </div>
+    </header>
+    <div class="sidebar_content">
+        <div class="sidebar_content_title">
+            <a class="full-box" href="./edit-info.html">
+                <div class="sidebar_content_title_pic ver-mid">
+                    <img src="./upload/avatar_03.png" alt="">
+                </div>
+                <div class="side_content_title_name ver-mid">射射发抖</div>
+            </a>
+        </div>
+        <ul class="side_content_link">
+            <li class="side_content_link_item">
+                <a  href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/main_page@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">首页</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./team-recommen.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/team@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">通关队伍推荐</div>
+                </a>
+            </li>
+            <!-- <li class="side_content_link_item">
+                <a href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/photo@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">图片墙</div>
+                </a>
+            </li> -->
+            <li class="side_content_link_item">
+                <a href="./fleet-recruit.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/wanted@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">舰队招募</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./information.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/guides@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">资讯攻略</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./feedback.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/suggestion@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">意见反馈</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar_mask"></div>
+</section>
+    
+    <!--script start-->
+    <!-- 资讯 模板 -->
+    <script type="text/html" id="J-tplList">
+        {{#for(var i in d){}}
+        <a href="{{d[i].info_url}}">
+            <div class="pub_news_item box">
+                <div class="pub_news_item_left">
+                    <img src="{{d[i].info_cover}}" alt="">
+                    <div class="pub_news_border"></div>
+                </div>
+                <div class="pub_news_item_right flex-1">
+                    <div class="pub_news_item_title">{{d[i].info_title}}</div>
+                    <div class="pub_news_item_content ellipsis-two">{{d[i].info_intro}}</div>
+                    <div class="pub_news_item_info box">
+                        <span>{{d[i].info_date}}</span>
+                        <span>作者：{{d[i].info_auth}}</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {{#}}}
+    </script>
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+<script src="./static/libs/fastclick.js"></script>
+<script src="./static/libs/ydui.js"></script>
+<script src="./static/libs/laytpl.min.js"></script>
+<script src="./static/js/utils.min.js"></script>
+<script src="./static/js/common.min.js"></script>
+
+    <script>
+        $(function () {
+		   var vd = new bh.weapon();
+            vd.init();
+            var info = new bh.scrollList();
+            info.setDataApi('./data/information.json');
+            // 1.模板2.容器3.页码4.每次请求/条数
+            info.init('#J-tplList','#J-infoBox',1,10);
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

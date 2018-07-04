@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>个人中心</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+</head>
+
+<body>
+    <header class="header_wrap header_bot_bor">
+        <div class="header_back" onclick="window.history.back(-1);">
+            <div class="header_back_icon ver-mid">
+                <img src="./static/img/back@2x.png" alt="">
+            </div>
+            <div class="header_back_text ver-mid"></div>
+        </div>
+        <div class="header_title">个人中心</div>
+    </header>
+    <section class="MD_personal_box">
+        <div class="part_1">
+            <div class="item_1 item_0">
+                <i class="icon-lf"></i>
+                <span class="tou">头像</span>
+                <img src="./static/img/valkyrie/val02@2x.png" alt="头像" class="tou_img">
+               <!-- <i class="icon-lr"></i>-->
+            </div>
+            <div class="item_2 item_0">
+                <i class="icon-lf"></i>
+                <span class="name">昵称</span>
+                <span class="username">瑟瑟不嘚瑟</span>
+               <!-- <i class="icon-lr"></i>-->
+            </div>
+            <!--<div class="item_3 item_0">
+                <i class="icon-lf"></i>
+                <span class="email">邮箱</span>
+                <span class="qq">784972981@qq.com</span>
+                <i class="icon-lr"></i>
+            </div>-->
+        </div>
+        <div class="part_2 MD_mr_top">
+            <div class="item_1 item_0">
+                <a href="./my_news.html">
+                    <i class="icon-lf"></i>
+                    <span class="me_msg">我的消息
+                        <span class="me_num" id="personal_hot_me">99</span>
+                    </span>
+                    <i class="icon-lr"></i>
+                </a>
+            </div>
+        </div>
+        <div class="part_3 MD_mr_top">
+            <div class="item_1 item_0">
+                <a href="javascript:;">
+                    <i class="icon-lf"></i>
+                    <span class="recruit">我的舰队招募
+                        <span class="recruit_num" id="personal_hot_recruit">...</span>
+                    </span>
+                    <i class="icon-lr"></i>
+                </a>
+            </div>
+            <div class="item_2 item_0">
+                <a href="javascript:;">
+                    <i class="icon-lf"></i>
+                    <span class="ranks">我的通关队伍
+                        <span class="ranks_num" id="personal_hot_ranks">09</span>
+                    </span>
+                    <i class="icon-lr"></i>
+                </a>
+            </div>
+        </div>
+        <!-- <div class="part_4 MD_mr_top">
+            <div class="item_1 item_0">
+                <a href="javascript:;">
+                    <i class="icon-lf"></i>
+                    <span class="collect">我的收藏</span>
+                    <i class="icon-lr"></i>
+                </a>
+            </div>
+        </div> -->
+    </section>
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+    <script src="./static/libs/fastclick.js"></script>
+    <script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

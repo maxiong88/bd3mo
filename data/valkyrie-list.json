@@ -1,0 +1,98 @@
+{
+    "status": 1,
+    "data": [
+        {
+            "title_pic": "./static/img/valkyrie/kiana@2x.png",
+            "list": [
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                }
+            ]
+        },
+        {
+            "title_pic": "./static/img/valkyrie/kiana@2x.png",
+            "list": [
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                }
+            ]
+        },
+        {
+            "title_pic": "./static/img/valkyrie/kiana@2x.png",
+            "list": [
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                }
+            ]
+        },
+        {
+            "title_pic": "./static/img/valkyrie/kiana@2x.png",
+            "list": [
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                }
+            ]
+        },
+        {
+            "title_pic": "./static/img/valkyrie/kiana@2x.png",
+            "list": [
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                },
+                {
+                    "valkyrie_url": "./valkyrie-detail.html",
+                    "valkyrie_pic": "./static/img/valkyrie/val01@2x.png"
+                }
+            ]
+        }
+    ]
+}

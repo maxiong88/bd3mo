@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>意见反馈</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+    <style>
+        body{
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid">取消</div>
+    </div>
+    <div class="header_title">意见反馈</div>
+    <div class="header_handle">发送</div>
+</header>
+    <section class="feedback_wrap">
+        <div class="feedback_split">
+            <img src="./static/img/devide_up@2x.png" alt="">
+        </div>
+        <div class="feedback_content">
+            <form id="addForm" action="./demo.heml" method="post">
+                <div class="feedback_ipt_box">
+                    <div class="feedback_textarea">
+                        <textarea name="username" class="feedback_textarea_fill ver-mid" type="text" value="" placeholder="您的宝贵意见..."></textarea>
+                    </div>
+                    <div class="pub_ipt pub_upload">
+                        
+                        <div class="pub_ipt_sm_load ver-mid">
+                            <img src="./static/img/add_pic_sm@2x.png" alt="">
+                            <input class="feedback_picsel" type="file" name="selpic" id="feedback_picsel">
+                        </div>
+                    </div>
+                    <div class="feedback_split">
+                        <img src="./static/img/devide_up@2x.png" alt="">
+                    </div>
+                    <div class="pub_ipt feedback_ipt02">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/write@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">联系邮箱</div>
+                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" placeholder="选填">
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+<script src="./static/libs/fastclick.js"></script>
+<script src="./static/libs/ydui.js"></script>
+<script src="./static/libs/laytpl.min.js"></script>
+<script src="./static/js/utils.min.js"></script>
+<script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+            $('.header_handle').on('click',function(){
+                $('#addForm').submit();
+            });
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

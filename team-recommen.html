@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>通关队伍推荐</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+</head>
+
+<body>
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid"></div>
+    </div>
+    <div class="header_title">通关队伍推荐</div>
+    <div class="header_menu">
+        <img src="./static/img/list@2x.png" alt="">
+    </div>
+</header>
+    <section class="team_recommen_wrap">
+        <!-- 顶部tab -->
+        <div class="information_tab">
+            <div class="fleet_recruit_top_split">
+                <img src="./static/img/deco_up@2x.png" alt="">
+            </div>
+            <div class="information_tab_list" style="margin-top:.3rem">
+                <ul class="information_tab_list_item ver-mid" id="J-type" style="width:90%;margin-left:5%">
+                    <li class="ver-mid selected" data-type="qqq">全部</li>
+					<li class="ver-mid" data-type="0">无尽深渊</li>
+                    <li class="ver-mid" data-type="1">记忆战场</li>
+                </ul>
+            </div>
+           
+            <div class="information_tab_switch" data-state="1">
+                <img src="./static/img/more_show@2x.png" alt="">
+                <!-- <img src="./static/img/show_off@2x.png" alt=""> -->
+            </div>
+        </div>
+        <!-- 推荐列表 -->
+        <div class="team_recommen_list" >
+		    <!-- 公用列表 -->
+            <div class="information_list_split">
+                <img src="./static/img/devide_down@2x.png" alt="">
+            </div>
+            <div class="team_recommen_list_itembox" id="J-infoBox" style="margin-top:-1.65rem;"></div>
+            <!-- <div class="team_recommen_item">
+                <div class="team_recommen_item_title box">
+                    <div>
+                        <div class="team_recommen_item_icon ver-mid">
+                            <img src="./static/img/video_link_exi@2x.png" alt="">
+                        </div>
+                        <div class="ver-mid">史上最强队伍</div>
+                    </div>
+                    <a href="./team-recommen-detail.html" class="team_recommen_item_more ver-bot">
+                        <span class="ver-mid">查看队伍详情</span>
+                        <div class="team_recommen_item_more_icon ver-mid">
+                            <img src="./static/img/get_in@2x.png" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="team_recommen_item_picinfo box">
+                    <div class="item_picinfo_scene ver-mid">
+                        <img src="./upload/yw_activity_01.png" alt="">
+                        <div class="item_picinfo_scene_bg"></div>
+                        <div class="item_picinfo_scene_name">女武神·系</div>
+                    </div>
+                    <div class="item_picinfo_team ver-mid flex-1">
+                        <div class="item_picinfo_team_item ver-mid">
+                            <img src="./upload/yw_activity_03.png" alt="">
+                            <div class="item_picinfo_team_01_bg"></div>
+                            <div class="item_picinfo_team_name">女武神·系</div>
+                        </div>
+                        <div class="item_picinfo_team_item ver-mid">
+                            <img src="./upload/yw_activity_03.png" alt="">
+                            <div class="item_picinfo_team_02_bg"></div>
+                            <div class="item_picinfo_team_name">女武神·系</div>
+                        </div>
+                        <div class="item_picinfo_team_item ver-mid">
+                            <img src="./upload/yw_activity_03.png" alt="">
+                            <div class="item_picinfo_team_03_bg"></div>
+                            <div class="item_picinfo_team_name">女武神·系</div>
+                        </div>
+                        <div class="item_picinfo_team_bg"></div>
+                    </div>
+                </div>
+                <div class="team_recommen_item_textinfo">
+                    通关队伍推荐通关队伍推荐通关队伍推荐通关队伍推荐通关队伍推荐通关队伍推荐通关队伍推荐通关队伍 推荐通关队伍推荐通关队伍推荐通关队伍推荐通关队伍推荐通关队伍推荐
+                </div>
+                <div class="team_recommen_item_otherinfo clearfix">
+                    <div class="ver-mid item_otherinfo_bot01 fl">通用版本：1.8.0</div>
+                    <div class="fr">
+                        <div class="ver-mid item_otherinfo_bot02">
+                            <div class="item_otherinfo_icon ver-mid">
+                                <img src="./static/img/nice@2x.png" alt="">
+                            </div>
+                            <div class="ver-mid">999</div>
+                        </div>
+                        <div class="ver-mid item_otherinfo_bot02">
+                            <div class="item_otherinfo_icon ver-mid">
+                                <img src="./static/img/bad@2x.png" alt="">
+                            </div>
+                            <div class="ver-mid">999</div>
+                        </div>
+                        <div class="ver-mid item_otherinfo_bot02">
+                            <div class="item_otherinfo_icon ver-mid">
+                                <img src="./static/img/comend@2x.png" alt="">
+                            </div>
+                            <div class="ver-mid">2313</div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- 发布资讯 -->
+        <a href="./team-recommen-add.html">
+            <div class="pub_add">
+                <img src="./static/img/i_want_to_recomend@2x.png" alt="">
+            </div>
+        </a>
+    </section>
+    <!--更多栏DOM -->
+    <section class="sidebar_wrap">
+    <header class="header_wrap">
+        <div class="index_title">
+            <img class="index_title_img" src="./static/img/title_logo@2x.png" alt="">
+        </div>
+        <div class="header_hide">
+            <img class="header_menu_img" src="./static/img/back_to_now@2x.png" alt="">
+        </div>
+    </header>
+    <div class="sidebar_content">
+        <div class="sidebar_content_title">
+            <a class="full-box" href="./edit-info.html">
+                <div class="sidebar_content_title_pic ver-mid">
+                    <img src="./upload/avatar_03.png" alt="">
+                </div>
+                <div class="side_content_title_name ver-mid">射射发抖</div>
+            </a>
+        </div>
+        <ul class="side_content_link">
+            <li class="side_content_link_item">
+                <a  href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/main_page@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">首页</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./team-recommen.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/team@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">通关队伍推荐</div>
+                </a>
+            </li>
+            <!-- <li class="side_content_link_item">
+                <a href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/photo@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">图片墙</div>
+                </a>
+            </li> -->
+            <li class="side_content_link_item">
+                <a href="./fleet-recruit.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/wanted@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">舰队招募</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./information.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/guides@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">资讯攻略</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./feedback.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/suggestion@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">意见反馈</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar_mask"></div>
+</section>
+
+    <!-- 队伍推荐 模板 -->
+    <script type="text/html" id="J-tplList">
+        {{#for(var i in d){}}
+        <a href="{{d[i].info_url}}">
+            <div class="team_recommen_item">
+                <div class="team_recommen_item_title box">
+                    <div>
+                        <div class="team_recommen_item_icon ver-mid">
+                            <img src="./static/img/video_link_exi@2x.png" alt="">
+                        </div>
+                        <div class="ver-mid">{{d[i].info_title}}</div>
+                    </div>
+                    <div class="team_recommen_item_more ver-bot">
+                        <span class="ver-mid">作者：{{d[i].info_auth}}</span>
+                    </div>
+                </div>
+                <div class="team_recommen_item_picinfo box">
+                    <div class="item_picinfo_scene ver-mid">
+                        <img src="{{d[i].info_scene}}" alt="">
+                        <div class="item_picinfo_scene_bg"></div>
+                        <div class="item_picinfo_scene_name">{{d[i].info_scene_name}}</div>
+                    </div>
+                    <div class="item_picinfo_team ver-mid flex-1">
+                        <div class="item_picinfo_team_item ver-mid">
+                            <img src="{{d[i].info_team01}}" alt="">
+                            <div class="item_picinfo_team_01_bg"></div>
+                            <div class="item_picinfo_team_name">{{d[i].info_team01_name}}</div>
+                        </div>
+                        <div class="item_picinfo_team_item ver-mid">
+                            <img src="{{d[i].info_team02}}" alt="">
+                            <div class="item_picinfo_team_name">{{d[i].info_team02_name}}</div>
+                        </div>
+                        <div class="item_picinfo_team_item ver-mid">
+                            <img src="{{d[i].info_team03}}" alt="">
+                            <div class="item_picinfo_team_name">{{d[i].info_team03_name}}</div>
+                        </div>
+                        <div class="item_picinfo_team_bg"></div>
+                    </div>
+                </div>
+                <div class="team_recommen_item_textinfo">
+                    {{d[i].info_intro}}
+                </div>
+                <div class="team_recommen_item_otherinfo clearfix">
+                    <div class="ver-mid item_otherinfo_bot01 fl">通用版本：{{d[i].info_ver}}</div>
+                    <div class="fr">
+                        <div class="ver-mid item_otherinfo_bot02">
+                            <div class="item_otherinfo_icon ver-mid">
+                                <img src="./static/img/nice@2x.png" alt="">
+                            </div>
+                            <div class="ver-mid">{{d[i].info_good}}</div>
+                        </div>
+                        <div class="ver-mid item_otherinfo_bot02">
+                            <div class="item_otherinfo_icon ver-mid">
+                                <img src="./static/img/bad@2x.png" alt="">
+                            </div>
+                            <div class="ver-mid">{{d[i].info_bad}}</div>
+                        </div>
+                        <div class="ver-mid item_otherinfo_bot02">
+                            <div class="item_otherinfo_icon ver-mid">
+                                <img src="./static/img/comend@2x.png" alt="">
+                            </div>
+                            <div class="ver-mid">{{d[i].info_comend}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {{#}}}
+    </script>
+
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+<script src="./static/libs/fastclick.js"></script>
+<script src="./static/libs/ydui.js"></script>
+<script src="./static/libs/laytpl.min.js"></script>
+<script src="./static/js/utils.min.js"></script>
+<script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+            var tr = new bh.teamRecommen();
+            tr.setDataApi('./data/team-recommen.json');
+            // 1.模板2.容器3.页码4.每次请求/条数
+            tr.init('#J-tplList', '#J-infoBox', 1, 10);
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>舰队招募</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+<link rel="stylesheet" href="./static/css/mdindex.css">
+    <style>
+        body{
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid"></div>
+    </div>
+    <div class="header_title">舰队招募</div>
+    <div class="header_menu">
+        <img src="./static/img/list@2x.png" alt="">
+    </div>
+</header>
+    <section class="fleet_recruit_wrap">
+        <!-- 顶部TAB -->
+        <div class="fleet_recruit_top_split">
+            <img src="./static/img/deco_up@2x.png" alt="">
+        </div>
+        <!-- 资讯列表 -->
+        <div class="fleet_recruit_list scroll_list">
+            <div id="MD_guanli">管理</div>
+            <!-- 公用列表 -->
+            <div class="fleet_recruit_list_itembox" id="J-infoBox">
+                <!-- <a href="./article.html?bid=293824">
+                    <div class="pub_fleet_item box">
+                        <div class="pub_fleet_item_left">
+                            <img src="./upload/youwen_banner_03.png" alt="">
+                        </div>
+                        <div class="pub_fleet_item_right flex-1">
+                            <div class="pub_fleet_item_title ellipsis">真炎角色真炎角色真炎角色优缺点分析评价</div>
+                            <div class="pub_fleet_item_content ellipsis-thr">真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价真炎角色优缺点分析评价</div>
+                            <div class="pub_fleet_item_info box">
+                                <span>24分钟</span>
+                                <span>作者：MAAAAM</span>
+                            </div>
+                        </div>
+                        <div class="pub_fleet_bg"></div>                        
+                    </div>
+                </a> -->
+            </div>
+        </div>
+        <!-- 发布资讯 -->
+        <a href="./fleet-recruit-add.html">
+            <div class="pub_add">
+                <img src="./static/img/add_wanted@2x.png" alt="">
+            </div>
+        </a>
+    </section>
+    <!--更多栏DOM -->
+    <section class="sidebar_wrap">
+    <header class="header_wrap">
+        <div class="index_title">
+            <img class="index_title_img" src="./static/img/title_logo@2x.png" alt="">
+        </div>
+        <div class="header_hide">
+            <img class="header_menu_img" src="./static/img/back_to_now@2x.png" alt="">
+        </div>
+    </header>
+    <div class="sidebar_content">
+        <div class="sidebar_content_title">
+            <a class="full-box" href="./edit-info.html">
+                <div class="sidebar_content_title_pic ver-mid">
+                    <img src="./upload/avatar_03.png" alt="">
+                </div>
+                <div class="side_content_title_name ver-mid">射射发抖</div>
+            </a>
+        </div>
+        <ul class="side_content_link">
+            <li class="side_content_link_item">
+                <a  href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/main_page@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">首页</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./team-recommen.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/team@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">通关队伍推荐</div>
+                </a>
+            </li>
+            <!-- <li class="side_content_link_item">
+                <a href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/photo@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">图片墙</div>
+                </a>
+            </li> -->
+            <li class="side_content_link_item">
+                <a href="./fleet-recruit.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/wanted@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">舰队招募</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./information.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/guides@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">资讯攻略</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./feedback.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/suggestion@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">意见反馈</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar_mask"></div>
+</section>
+
+    <!--script start-->
+    <!-- 资讯 模板 -->
+    <script type="text/html" id="J-tplList">
+        {{#for(var i in d){}}
+       
+            <div class="pub_fleet_item " data-id="{{d[i].info_id}}">
+                  
+                <div class="MD_check">
+                    <div class="radio"></div>
+                </div>
+      
+                    <a href="{{d[i].info_url}}" class="box">
+                <div class="pub_fleet_item_left">
+                    <img src="{{d[i].info_cover}}" alt="">
+                </div>
+                <div class="pub_fleet_item_right flex-1">
+                    <div class="pub_fleet_item_title ellipsis">{{d[i].info_title}}</div>
+                    <div class="pub_fleet_item_content ellipsis-thr">{{d[i].info_intro}}</div>
+                    <div class="pub_fleet_item_info box">
+                        <span>{{d[i].info_date}}</span>
+                        <span>作者：{{d[i].info_auth}}</span>
+                    </div>
+                </div>
+                <div class="pub_fleet_bg"></div> 
+            </a>     
+            </div>
+       
+        {{#}}}
+    </script> 
+    <div class="tipbox">
+        <div class="tipbox1">
+            <div class="tipfooter">
+                    <div id="tipAdel" class="item2"></div>
+                <div id="tipAsuc" class="item1"></div>
+                
+            </div>
+        </div>
+        <div class="tipbox2">
+            <div class="tipfooter">
+                <div id="tipBsuc" class="item2"></div>
+            </div>
+        </div>
+    </div>
+    
+<script src="./static/libs/jquery-2.2.4.min.js"></script>
+<script src="./static/libs/fastclick.js"></script>
+<script src="./static/libs/ydui.js"></script>
+<script src="./static/libs/laytpl.min.js"></script>
+<script src="./static/js/utils.min.js"></script>
+<script src="./static/js/common.min.js"></script>
+
+    <script>
+        $(function () {
+            var arrList = [];
+            var sl = new bh.scrollList();
+			var dataApi2 = 'a.php';
+            sl.setDataApi('./data/fleet-recruit.json');
+            // 1.模板2.容器3.页码4.每次请求/条数
+            sl.init('#J-tplList', '#J-infoBox', 1, 10);
+            $("#MD_guanli").on("click",function(){
+                if($(this).hasClass("on")){
+                    if(arrList.length===0){
+                        $(".tipbox").show();
+                        $(".tipbox2").show();
+                    }else if(arrList.length>0){
+                        $(".tipbox").show();
+                        $(".tipbox1").show();                        
+                    }
+                }else{
+                    
+                    $(this).addClass("on").html("删除");
+                    $(".pub_fleet_item").each(function(){
+                        $(this).find(".MD_check").show()
+                    })
+                }
+
+            });
+            $("#tipBsuc").on("click",function(){
+                $(".tipbox").hide();
+                $(".tipbox2").hide();
+            })
+            // 删除
+            $("#tipAdel").on("click",function(){
+				$.ajax({
+					url:dataApi2,
+					type:"post",
+					data:{tiparr:arrList.join(",")},
+					dataType:"json",
+					success:function(data){
+						$(".tipbox").hide();
+						$(".tipbox2").hide();
+						if(data.status==='1'){
+							$("#MD_guanli").removeClass("on").html("管理");
+							$(".pub_fleet_item").each(function(index){
+								if( $(this).data("id")==arrList[index]){
+									$(this).remove()
+								}
+								$(this).find(".MD_check").hide()
+							})
+						
+						}
+						YDUI.dialog.toast(data.msg, 'none', 2000);
+					}
+				})
+            })
+            // 取消
+            $("#tipAsuc").on("click",function(){
+                $(".tipbox").hide();
+                $(".tipbox2").hide();
+            })
+            $("body").on("click",".MD_check",function(event){
+               var id =  $(this).parent().data("id");
+               if($(this).hasClass("on")){
+                    $(this).removeClass("on");
+                    arrdel(arrList, id)
+               }else{
+                   $(this).addClass("on")
+                   arrList.push(id)
+               }
+            })
+        });
+        // 获取管理数据
+        function arrdel(arr, id){
+            var index = arr.indexOf(id);
+            if(index > -1){
+                arr.splice(index, 1)
+            }
+            return arr
+        }
+    </script>
+    <!--script end-->
+</body>
+
+</html>

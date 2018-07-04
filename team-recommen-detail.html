@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>通关队伍推荐</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+    <style>
+        body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+        <input type="hidden" id="openId" value="1234567890">
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid"></div>
+    </div>
+    <div class="header_title">通关队伍推荐</div>
+    <div class="header_menu">
+        <img src="./static/img/list@2x.png" alt="">
+    </div>
+</header>
+    <section class="team_recommen_detail_wrap">
+        <div class="detail_top_split">
+            <img src="./static/img/devide_up@2x.png" alt="">
+        </div>
+        <!-- 队伍title -->
+        <div class="detail_title">
+            <div class="detail_title_h3">史上最强队伍</div>
+            <div class="detail_title_info">
+                <div class="detail_title_info_auth ver-mid">作者：甚至没有头发</div>
+                <div class="detail_title_info_date ver-mid">2017.10.21</div>
+            </div>
+        </div>
+        <div class="detail_content">
+            <!-- 表格简介 -->
+            <div class="detail_content_top">
+                <div class="detail_content_top_item">
+                    <div class="item_left ver-mid">适用关卡</div>
+                    <div class="item_right ver-mid">深渊：红莲20-30</div>
+                </div>
+                <div class="detail_content_top_item item_h">
+                    <div class="item_left ver-mid">队长技</div>
+                    <div class="item_right ver-mid">红莲20-30深渊：红莲20-30深渊：红莲20-30深渊：红莲20-30</div>
+                </div>
+                <!-- <div class="detail_content_top_item item_h">
+                    <div class="item_left ver-mid">基友技</div>
+                    <div class="item_right ver-mid">红莲20-30深渊：红莲20-30深渊：红莲20-30深渊：红莲20-30</div>
+                </div> -->
+                <div class="detail_content_top_item item_h">
+                    <div class="item_left ver-mid">视频链接</div>
+                    <div class="item_right ver-mid">
+                        <a href="https://www.baidu.com/">
+                            <div class="item_right_pic">
+                                <img src="./static/img/team-recommen/jump_link@2x.png" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="detail_content_top_bg"></div>
+            </div>
+            <!-- 队员信息 -->
+            <div class="detail_content_mid">
+                <!-- 队长 -->
+                <div class="detail_content_mid_item">
+                    <div class="mid_item_left">
+                        <div class="mid_item_left_top"><img src="http://m.3rdguide.com/static/ap/img/team-recommen/duizhang_detail@2x.png" alt=""></div>
+                    </div>
+                    <!-- 女武神图片 -->
+                    <div class="mid_item_center">
+                        <img src="./upload/25479170020671271.png" alt="">
+                        <div class="rate rate_a"></div>
+                        <!--
+                            评级使用下面的class样式
+                            rate_b
+                            rate_s
+                            rate_ss
+                            rate_sss
+                        -->
+                    </div>
+                    <div class="mid_item_right">
+                        <div class="mid_item_right_top">
+                            <div class="mid_item_right_top_data">
+                                <div class="mid_item_right_top_data_pic">
+                                    <img src="./upload/25479170020671271.png" alt="">
+                                </div>
+                                <div class="mid_item_right_top_data_title">仿灵刀·冰昊天</div>
+                            </div>
+                            <div class="mid_item_right_top_bg"></div>
+                        </div>
+                        <div class="mid_item_right_bot">
+                            <div class="mid_item_right_bot_data">
+                                <div class="mid_item_right_bot_data_item item01">
+                                    <div class="mid_item_right_bot_data_pic">
+                                        <img src="./upload/25479170020671271.png" alt="">
+                                    </div>
+                                    <div class="mid_item_right_bot_data_title">仿灵刀-上</div>
+                                </div>
+                                <div class="mid_item_right_bot_data_item item02">
+                                    <div class="mid_item_right_bot_data_pic">
+                                        <img src="./upload/25479170020671271.png" alt="">
+                                    </div>
+                                    <div class="mid_item_right_bot_data_title">仿灵刀-中</div>
+                                </div>
+                                <div class="mid_item_right_bot_data_item item03">
+                                    <div class="mid_item_right_bot_data_pic">
+                                        <img src="./upload/25479170020671271.png" alt="">
+                                    </div>
+                                    <div class="mid_item_right_bot_data_title">仿灵刀-下</div>
+                                </div>
+                            </div>
+                            <div class="mid_item_right_bot_bg"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 队员 -->
+                <div class="detail_content_mid_item">
+                    <!-- 女武神图片 -->
+                    <div class="mid_item_center">
+                        <img src="./upload/avatar_02.png" alt="">
+                    </div>
+                    <div class="mid_item_right">
+                        <div class="mid_item_right_top">
+                            <div class="mid_item_right_top_data">
+                                <div class="mid_item_right_top_data_pic">
+                                    <img src="./upload/avatar_02.png" alt="">
+                                </div>
+                                <div class="mid_item_right_top_data_title">仿灵刀·冰昊天</div>
+                            </div>
+                            <div class="mid_item_right_top_bg"></div>
+                        </div>
+                        <div class="mid_item_right_bot">
+                            <div class="mid_item_right_bot_data">
+                                <div class="mid_item_right_bot_data_item item01">
+                                    <div class="mid_item_right_bot_data_pic">
+                                        <img src="./upload/avatar_02.png" alt="">
+                                    </div>
+                                    <div class="mid_item_right_bot_data_title">仿灵刀-上</div>
+                                </div>
+                                <div class="mid_item_right_bot_data_item item02">
+                                    <div class="mid_item_right_bot_data_pic">
+                                        <img src="./upload/avatar_02.png" alt="">
+                                    </div>
+                                    <div class="mid_item_right_bot_data_title">仿灵刀-中</div>
+                                </div>
+                                <div class="mid_item_right_bot_data_item item03">
+                                    <div class="mid_item_right_bot_data_pic">
+                                        <img src="./upload/avatar_02.png" alt="">
+                                    </div>
+                                    <div class="mid_item_right_bot_data_title">仿灵刀-下</div>
+                                </div>
+                            </div>
+                            <div class="mid_item_right_bot_bg"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 队员 -->
+                <div class="detail_content_mid_item">
+                    <!-- 女武神图片 -->
+                    <div class="mid_item_center">
+                        <img src="./upload/avatar_02.png" alt="">
+                    </div>
+                    <div class="mid_item_right">
+                        <div class="mid_item_right_top">
+                            <div class="mid_item_right_top_data">
+                                <div class="mid_item_right_top_data_pic">
+                                    <img src="./upload/avatar_02.png" alt="">
+                                </div>
+                                <div class="mid_item_right_top_data_title">仿灵刀·冰昊天</div>
+                            </div>
+                            <div class="mid_item_right_top_bg"></div>
+                        </div>
+                        <div class="mid_item_right_bot">
+                            <div class="mid_item_right_bot_data">
+                                <div class="mid_item_right_bot_data_item item01">
+                                    <div class="mid_item_right_bot_data_pic">
+                                        <img src="./upload/avatar_02.png" alt="">
+                                    </div>
+                                    <div class="mid_item_right_bot_data_title">仿灵刀-上</div>
+                                </div>
+                                <div class="mid_item_right_bot_data_item item02">
+                                    <div class="mid_item_right_bot_data_pic">
+                                        <img src="./upload/avatar_02.png" alt="">
+                                    </div>
+                                    <div class="mid_item_right_bot_data_title">仿灵刀-中</div>
+                                </div>
+                                <div class="mid_item_right_bot_data_item item03">
+                                    <div class="mid_item_right_bot_data_pic">
+                                        <img src="./upload/avatar_02.png" alt="">
+                                    </div>
+                                    <div class="mid_item_right_bot_data_title">仿灵刀-下</div>
+                                </div>
+                            </div>
+                            <div class="mid_item_right_bot_bg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 底部 -->
+            <div class="detail_content_bot">
+                <div class="detail_content_bot_text">
+                    扩冰机械队是最近得到大量使用的阵容，主要集中在勿忘，游侠只需要一把在勿忘，游侠只需要一把在勿忘，游侠只需要一把在勿忘，游侠只需要一把在勿忘，游侠只需要一把在勿忘，游侠只需要一把在勿忘，游侠只需要一把.
+                </div>
+                <div class="detail_content_bot_btn box">
+                    <div class="detail_content_bot_btn01 ver-mid">
+                        <div class="btn01_pic"><img src="./static/img/team-recommen/nice@2x.png" alt=""></div>
+                        <div class="btn01_pic hide"><img src="./static/img/team-recommen/nice_already@2x.png" alt=""></div>
+                        <span class="btn01_text">1234</span>
+                    </div>
+                    <div class="detail_content_bot_btn02 ver-mid">
+                        <div class="btn02_pic"><img src="./static/img/team-recommen/bad@2x.png" alt=""></div>
+                        <div class="btn02_pic hide"><img src="./static/img/team-recommen/bad_already@2x.png" alt=""></div>
+                        <span class="btn02_text">1234</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-line">
+                <img src="./static/img/personal/devide_line@2x.png" alt="">
+            </div>
+            <div class="MD_details_box">
+                <div class="sort_num">
+                    <span><i></i><em>1000</em></span>
+                    <span data-sortp="2"  id="sortTime"></span>
+                    <span data-parentType="1" id="publishComment"></span>
+                </div>
+                <div>
+                    <ul id="J-infoBox">
+    
+                    </ul>
+                </div>
+            </div>
+    </section>
+    <!--更多栏DOM -->
+    <section class="sidebar_wrap">
+    <header class="header_wrap">
+        <div class="index_title">
+            <img class="index_title_img" src="./static/img/title_logo@2x.png" alt="">
+        </div>
+        <div class="header_hide">
+            <img class="header_menu_img" src="./static/img/back_to_now@2x.png" alt="">
+        </div>
+    </header>
+    <div class="sidebar_content">
+        <div class="sidebar_content_title">
+            <a class="full-box" href="./edit-info.html">
+                <div class="sidebar_content_title_pic ver-mid">
+                    <img src="./upload/avatar_03.png" alt="">
+                </div>
+                <div class="side_content_title_name ver-mid">射射发抖</div>
+            </a>
+        </div>
+        <ul class="side_content_link">
+            <li class="side_content_link_item">
+                <a  href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/main_page@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">首页</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./team-recommen.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/team@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">通关队伍推荐</div>
+                </a>
+            </li>
+            <!-- <li class="side_content_link_item">
+                <a href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/photo@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">图片墙</div>
+                </a>
+            </li> -->
+            <li class="side_content_link_item">
+                <a href="./fleet-recruit.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/wanted@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">舰队招募</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./information.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/guides@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">资讯攻略</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./feedback.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/suggestion@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">意见反馈</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar_mask"></div>
+</section>
+    <div class="editor_box">
+        <div class="editor_box_1">
+            <input type="hidden" id="parentId">
+            <textarea name="editor_box_content" id="editor_box_content"></textarea>
+            <div>
+                <a href="javascript:;" class="editor_box_qx">取消</a>
+                <a href="javascript:;" class="editor_box_tj">提交</a>
+            </div>
+        </div>
+    </div>
+   <!-- template -->
+   <script  type="text/html" id="J-tplCommentList">
+    {{#for(var i in d.comments){}}
+    <li>
+        <div class="details_tou">
+            <img src="{{d.comments[i].commentAuthorImg}}" alt="头像" class="tou_img">
+            <p>{{d.comments[i].commentAuthorName}}</p>
+        </div>
+        <div class="detals_msg">
+            <p>{{d.comments[i].commentContent}}</p>
+            <ul>
+                {{#for(var j in d.comments[i].subMessages){}}
+                <li>
+                    <div class="details_tou">
+                        <img src="{{d.comments[i].subMessages[j].msgAuthorImg}}" alt="头像" class="tou_img">
+                        <p>{{d.comments[i].subMessages[j].msgAuthorName}}</p>
+                        <span>{{d.comments[i].subMessages[j].tm}}</span>
+                    </div>
+                    <p>{{d.comments[i].subMessages[j].msgContent}}</p>
+                    {{#  if(d.comments[i].subMessages[j].msgAuthorId === parseInt($("#openId").val(), 10) ){ }}
+                    <div class="delbox">
+                        <span class="del fl" data-del="'del',{{d.comments[i].subMessages[j].msgId,1}}">删除</span> 
+                    </div>
+                    {{#  } }} 
+                </li>
+                {{#}}}
+            </ul>
+            <div class="details_func">
+                <span class="time fl">{{d.comments[i].tm}}</span>
+                {{#  if(d.comments[i].commentAuthorId ===parseInt($("#openId").val(), 10)){ }}
+                    <span class="del fl" data-del="'del',{{d.comments[i].commentId}},0">删除</span>
+                {{#  } }} 
+                {{# if(d.comments[i].zanByMe === 2){}}
+                <span class="bad zan fr on" data-zan="'zan',{{d.comments[i].commentId}},2,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].caiCount}}</span></span>
+                
+                {{#  } else { }}
+                <span class="bad zan fr " data-zan="'zan',{{d.comments[i].commentId}},2,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].caiCount}}</span></span>
+                
+                {{# } }}
+                {{# if(d.comments[i].zanByMe === 1){}}
+                <span class="good zan fr on" data-zan="'zan',{{d.comments[i].commentId}},1,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].zanCount}}</span></span>
+                
+                {{#  } else { }}
+                <span class="good zan fr" data-zan="'zan',{{d.comments[i].commentId}},1,{{d.comments[i].zanByMe}}"><i></i><span>{{d.comments[i].zanCount}}</span></span>
+                
+                {{# } }}
+                <span class="comment fr" data-parentType="3" data-commentid="{{d.comments[i].commentId}}"><i></i><span>{{d.comments[i].subMsgCount}}</span></span>
+
+            </div>
+        </div>  
+    </li>
+    {{#}}}
+</script>
+<!--script start-->
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+    <script src="./static/libs/fastclick.js"></script>
+    <script src="./static/libs/ydui.js"></script>
+    <script src="./static/libs/laytpl.min.js"></script>
+    <script src="./static/js/utils.min.js"></script>
+    <script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+            var dataApi = './data/teamdetail.json';
+            var openId = $("openId").val();
+            var sl = new bh.commentDetails();
+            //接口 getAllSubComments  restfull openid sort
+            sl.setDataApi('./data/commentDetails.json','GET',openId,2);
+            // 1.模板2.容器3.页码4.每次请求/条数
+            sl.init('#J-tplCommentList', '#J-infoBox', 1, 10);
+            // 初始化
+
+ 
+            // 点赞
+            $('.btn01_pic').on('click',function(){
+                var _this  = $(this);
+                var _obj  = _this.siblings('.btn01_text');
+                // $('.btn01_pic').removeClass('hide');
+                // $(this).addClass('hide');
+                $.ajax({
+                    url: dataApi,
+                    dataType: 'json',
+                    data: {type: 1},
+                    success: function (ret) {
+                        if (ret.status != 0) {
+                            _obj.html(Number(_obj.html())+1)
+                        } else {
+                            YDUI.dialog.toast('你已经点赞了', 'none', 2000);
+                        }
+                    }
+                });
+            })
+            // 点差
+            $('.btn02_pic').on('click',function(){
+                var _this  = $(this);
+                var _obj  = _this.siblings('.btn02_text');
+                // $('.btn02_pic').removeClass('hide');
+                // $(this).addClass('hide');
+                $.ajax({
+                    url: dataApi,
+                    dataType: 'json',
+                    data: {type: 2},
+                    success: function (ret) {
+                        if (ret.status != 0) {
+                            _obj.html(Number(_obj.html())+1)
+                        } else {
+                            YDUI.dialog.toast('你已经原谅了', 'none', 2000);
+                        }
+                    }
+                });
+            })
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

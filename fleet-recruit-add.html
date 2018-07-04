@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>编辑舰团资料</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+    <style>
+        body{
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid">取消</div>
+    </div>
+    <div class="header_title">编辑舰团资料</div>
+    <div class="header_handle">发布</div>
+</header>
+    <section class="fleet_recruit_add_wrap">
+        <div class="fleet_recruit_add_split">
+            <img src="./static/img/devide_up@2x.png" alt="">
+        </div>
+        <div class="fleet_recruit_add_content">
+            <form id="addForm" action="./demo.heml" method="post">
+                <div class="fleet_recruit_add_ipt_box">
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/choose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">选择区服</div>
+                        <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1">安卓一区</option>
+                            <option value="2">安卓二区</option>
+                            <option value="2">安卓二区</option>
+                            <option value="2">安卓二区</option>
+                        </select>
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/choose_follow@2x.png" alt="">
+                        </div>
+                    </div>
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/write@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">舰队名称</div>
+                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" minlength="2" maxlength="15" placeholder="2-15字">
+                    </div>
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/write@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">舰团ID</div>
+                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" placeholder="ID">
+                    </div>
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/write@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">QQ群号</div>
+                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" placeholder="群号">
+                    </div>
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/write@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">招募标题</div>
+                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" maxlength="100" placeholder="取一个响亮的标题吧！">
+                    </div>
+                    <div class="pub_ipt pub_textarea">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/write@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">详细介绍</div>
+                        <textarea name="username" class="pub_textarea_fill ver-mid" type="text" value="" maxlength="300" placeholder="关于舰团，说点啥吧"></textarea>
+                    </div>
+                    <div class="pub_ipt pub_upload">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/upload@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">
+                            <span>上传图片</span>
+                            <span class="pub_ipt_text_tip">- 选填 -</span>
+                        </div>
+                        <div class="pub_ipt_load ver-mid">
+                            <img src="./static/img/add_pic@2x.png" alt="" id="myImg">
+                            <input class="fleet_recruit_add_picsel" type="file" name="selpic" accept="image/*" onchange="changImg(event)" id="fleet_recruit_add_picsel">
+                        </div>
+                    </div>
+                    <p style="padding-left:1.9rem;font-size:.2rem;color:#999">最佳尺寸为1000*1000，大小限制为2M</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+<script src="./static/libs/fastclick.js"></script>
+<script src="./static/libs/ydui.js"></script>
+<script src="./static/libs/laytpl.min.js"></script>
+<script src="./static/js/utils.min.js"></script>
+<script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+            $('.header_handle').on('click',function(){
+                $('#addForm').submit();
+                //alert($("#fleet_recruit_add_picsel").val())
+            });
+
+        });
+        function changImg(e){  
+                for (var i = 0; i < e.target.files.length; i++) {  
+                    var file = e.target.files.item(i);  
+                    if (!(/^image\/.*$/i.test(file.type))) {  
+                        continue; //不是图片 就跳出这一次循环  
+                    }  
+                    //实例化FileReader API  
+                    var freader = new FileReader();  
+                    freader.readAsDataURL(file);  
+                    freader.onload = function(e) {  
+                        $("#myImg").attr("src",e.target.result);  
+                    }  
+                }  
+            }
+    </script>
+    <!--script end-->
+</body>
+
+</html>

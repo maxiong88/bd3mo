@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>女武神</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+</head>
+
+<body>
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid"></div>
+    </div>
+    <div class="header_title">女武神</div>
+    <div class="header_menu">
+        <img src="./static/img/list@2x.png" alt="">
+    </div>
+</header>
+    <section class="valkyrie_wrap">
+        <div class="valkyrie_top_split">
+            <img src="./static/img/deco_up@2x.png" alt="">
+        </div>
+        <!-- 女武神列表 -->
+        <div class="valkyrie_list scroll_list">
+            <div id="J-infoBox">
+                <!-- 女武神 -->
+                <!-- <div class="valkyrie_list_item">
+                    <div class="valkyrie_headtitle clearfix">
+                        <img src="./static/img/valkyrie/kiana@2x.png" alt="">
+                    </div>
+                    <div class="valkyrie_content">
+                        <ul class="valkyrie_content_list clearfix">
+                            <li><a href="./valkyrie-detail.html"><img src="./static/img/valkyrie/val01@2x.png" alt=""></a></li>
+                            <li><a href="./valkyrie-detail.html"><img src="./static/img/valkyrie/val02@2x.png" alt=""></a></li>
+                            <li><a href="./valkyrie-detail.html"><img src="./static/img/valkyrie/val01@2x.png" alt=""></a></li>
+                            <li><a href="./valkyrie-detail.html"><img src="./static/img/valkyrie/val01@2x.png" alt=""></a></li>
+                            <li><a href="./valkyrie-detail.html"><img src="./static/img/valkyrie/val01@2x.png" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>  -->
+            </div>
+        </div>
+    </section>
+    <!--更多栏DOM -->
+    <section class="sidebar_wrap">
+    <header class="header_wrap">
+        <div class="index_title">
+            <img class="index_title_img" src="./static/img/title_logo@2x.png" alt="">
+        </div>
+        <div class="header_hide">
+            <img class="header_menu_img" src="./static/img/back_to_now@2x.png" alt="">
+        </div>
+    </header>
+    <div class="sidebar_content">
+        <div class="sidebar_content_title">
+            <a class="full-box" href="./edit-info.html">
+                <div class="sidebar_content_title_pic ver-mid">
+                    <img src="./upload/avatar_03.png" alt="">
+                </div>
+                <div class="side_content_title_name ver-mid">射射发抖</div>
+            </a>
+        </div>
+        <ul class="side_content_link">
+            <li class="side_content_link_item">
+                <a  href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/main_page@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">首页</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./team-recommen.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/team@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">通关队伍推荐</div>
+                </a>
+            </li>
+            <!-- <li class="side_content_link_item">
+                <a href="./index.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/photo@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">图片墙</div>
+                </a>
+            </li> -->
+            <li class="side_content_link_item">
+                <a href="./fleet-recruit.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/wanted@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">舰队招募</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./information.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/guides@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">资讯攻略</div>
+                </a>
+            </li>
+            <li class="side_content_link_item">
+                <a href="./feedback.html">
+                    <div class="side_content_link_item_pic ver-mid">
+                        <img src="./static/img/suggestion@2x.png" alt="">
+                    </div>
+                    <div class="ver-mid">意见反馈</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar_mask"></div>
+</section>
+    <!-- 资讯 模板 -->
+    <script type="text/html" id="J-tplList">
+        {{#for(var i in d){}}
+        <div class="valkyrie_list_item">
+            <div class="valkyrie_headtitle clearfix">
+                <img src="{{d[i].title_pic}}" alt="">
+            </div>
+            <div class="valkyrie_content">
+                <ul class="valkyrie_content_list clearfix">
+                    {{#for(var j in d[i].list){}}
+                    <li><a href="{{d[i].list[j].valkyrie_url}}"><img src="{{d[i].list[j].valkyrie_pic}}" alt=""></a></li>
+                    {{#}}}
+                </ul>
+            </div>
+        </div> 
+        {{#}}}
+    </script>
+    <!--script start-->
+
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+<script src="./static/libs/fastclick.js"></script>
+<script src="./static/libs/ydui.js"></script>
+<script src="./static/libs/laytpl.min.js"></script>
+<script src="./static/js/utils.min.js"></script>
+<script src="./static/js/common.min.js"></script>
+
+    <script>
+        $(function(){
+            var sl = new bh.valkyrieList();
+            sl.setDataApi('./data/valkyrie-list.json');
+            // 1.模板2.容器3.页码4.每次请求/条数
+            sl.init('#J-tplList','#J-infoBox',1,4);
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>

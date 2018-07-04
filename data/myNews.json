@@ -1,0 +1,44 @@
+{
+    "error" : 0,
+    "msg" : "成功",
+    "data" : {
+        "totalCount": 100,
+        "messages": [{
+            "msgId" : 10001,
+            "msgType" : 1,
+            "msgAuthorId" : "123456789001",
+            "tm" : "04-12 15:13",
+            "read" : 0,
+            "msgAuthorName": "妹子一号1",
+            "msgAuthorImg" : "./static/img/valkyrie/val02@2x.png",
+            "msgContent" : "N次 泰国 自由行，再加 泰国 待了一年，所以 泰国 基本逛遍了～ 不管去哪，我一般都会选择自由行，因为时间自由，不需要体验到此一游的游客体验"
+        },{
+            "msgId" : 10002,
+            "msgType" : 1,
+            "read" : 0,
+            "msgAuthorId" : "123456789002",
+            "tm" : "04-12 15:13",
+            "msgAuthorName": "妹子一号2",
+            "msgAuthorImg" : "./static/img/valkyrie/val02@2x.png",
+            "msgContent" : "N次 泰国 自由行，再加 泰国 待了一年，所以 泰国 基本逛遍了～ 不管去哪，我一般都会选择自由行，因为时间自由，不需要体验到此一游的游客体验"
+        },{
+            "msgId" : 10003,
+            "msgType" : 1,
+            "read" : 0,
+            "msgAuthorId" : "123456789003",
+            "tm" : "04-12 15:13",
+            "msgAuthorName": "妹子一号3",
+            "msgAuthorImg" : "./static/img/valkyrie/val02@2x.png",
+            "msgContent" : "N次 泰国 自由行，再加 泰国 待了一年，所以 泰国 基本逛遍了～ 不管去哪，我一般都会选择自由行，因为时间自由，不需要体验到此一游的游客体验"           
+        },{
+            "msgId" : 10004,
+            "msgType" : 1,
+            "read" : 1,
+            "msgAuthorId" : "123456789004",
+            "tm" : "04-12 15:13",
+            "msgAuthorName": "妹子一号4",
+            "msgAuthorImg" : "./static/img/valkyrie/val02@2x.png",
+            "msgContent" : "N次 泰国 自由行，再加 泰国 待了一年，所以 泰国 基本逛遍了～ 不管去哪，我一般都会选择自由行，因为时间自由，不需要体验到此一游的游客体验"          
+        }]
+    }
+}

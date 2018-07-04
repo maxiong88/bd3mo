@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>我要推荐</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+    <style>
+        body{
+            background-color: #fff;
+        }
+		body.modal-open {
+			position: fixed;
+			width: 100%;
+		}
+    </style>
+</head>
+
+<body>
+    <!-- 引入头部导航 -->
+    <header class="header_wrap">
+    <div class="header_back" onclick="window.history.back(-1);">
+        <div class="header_back_icon ver-mid">
+            <img src="./static/img/back@2x.png" alt="">
+        </div>
+        <div class="header_back_text ver-mid">取消</div>
+    </div>
+    <div class="header_title">我要推荐</div>
+    <div class="header_handle">发布</div>
+</header>
+    <section class="team_add_wrap team_add_wrap">
+        <div class="team_add_split">
+            <img src="./static/img/devide_up@2x.png" alt="">
+        </div>
+        <div class="team_add_content">
+            <form id="addForm" action="./demo.heml" method="post">
+			<input type="hidden" id="_sid">
+			<input type="hidden" id="_wid">
+                <div class="team_add_ipt_box">
+                    <!-- <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/choose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">选择区服</div>
+                        <select name="usersex" class="pub_ipt_fill ver-mid" type="text" value="射射发抖" placeholder="请选择性别">
+                            <option value="1">安卓一区</option>
+                            <option value="2">安卓二区</option>
+                            <option value="2">安卓二区</option>
+                            <option value="2">安卓二区</option>
+                        </select>
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/choose_follow@2x.png" alt="">
+                        </div>
+                    </div> -->
+                    <!-- 推荐标题 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/write@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">推荐标题</div>
+                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" placeholder="例如：扩冰队阵容推荐">
+                    </div>
+                    <!-- 游戏模式 -->
+                    <!-- <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/choose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">游戏模式</div>
+                        <select id="selType" name="usersex" class="pub_ipt_fill_half ver-mid" type="text">
+                            <option value="1" selected="selected">单机模式</option>
+                            <option value="2">联机模式</option>
+                        </select>
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/choose_follow@2x.png" alt="">
+                        </div>
+                    </div> -->
+                    <!-- 适用场景 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/choose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">适用场景</div>
+                        <div class="pub_ipt_rela">
+                            <select id="selScene" name="usersex" class="pub_ipt_fill_half ver-mid" type="text">
+                                <option value="1" selected="selected">深渊-红莲</option>
+                                <option value="2">深渊-地狱</option>
+                            </select>
+                            <div class="pub_ipt_select_icon ver-mid">
+                                <img src="./static/img/choose_follow@2x.png" alt="">
+                            </div>
+                        </div>
+                        <div class="pub_ipt_rela">
+                            <select id="selFloor" name="usersex" class="pub_ipt_fill_half ver-mid" type="text">
+                                <!-- <option value="1" selected="selected">0-10层</option>
+                                <option value="2">10-20层</option> -->
+                            </select>
+                            <div class="pub_ipt_select_icon ver-mid">
+                                <img src="./static/img/choose_follow@2x.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 视频链接 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/write@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">视频链接</div>
+                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" placeholder="选填">
+                    </div>
+                    <!-- 队伍说明 -->
+                    <div class="pub_ipt pub_textarea">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/write@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">队伍说明</div>
+                        <textarea name="username" class="pub_textarea_fill ver-mid" type="text" value="" placeholder="选填"></textarea>
+                    </div>
+                </div>
+                <div class="split-bottom-grey"></div>
+                <!-- 队长 -->
+                <div class="team_add_ipt_box">
+                    <div class="team_add_ipt_box_title">
+                        <img src="./static/img/team-recommen/captain_info@2x.png" alt="">
+                    </div>
+                    <!-- 选择队长 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">选择队长</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selMember1" name="selMember1" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selMember1-btn"></div>
+                        </div>
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 角色评级 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/choose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">角色评级</div>
+                        <select name="usersex" class="pub_ipt_fill_half ver-mid" type="text">
+                            <option value="1" selected="selected">S</option>
+                            <option value="2">SS</option>
+                            <option value="3">SSS</option>
+                        </select>
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/choose_follow@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 使用武器 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">使用武器</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selwuqi1" name="selwuqi1" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selwuqi-btn">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 上位圣痕 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">上位圣痕</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selsheng1_1" name="selsheng1_1" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selsheng1_1-btn selsheng" data-id="0">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 中位圣痕 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">中位圣痕</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selsheng1_2" name="selsheng1_2" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selsheng1_2-btn selsheng" data-id="1">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 下位圣痕 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">下位圣痕</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selsheng1_3" name="selsheng1_3" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selsheng1_3-btn selsheng" data-id="2">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- 队员1 -->
+                <div class="team_add_ipt_box">
+                    <div class="team_add_ipt_box_title">
+                        <img src="./static/img/team-recommen/member1_info@2x.png" alt="">
+                    </div>
+                    <!-- 选择队员1 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">选择队员</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selMember2" name="selMember2" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selMember2-btn"></div>
+                        </div>
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 角色评级 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/choose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">角色评级</div>
+                        <select name="usersex" class="pub_ipt_fill_half ver-mid" type="text">
+                            <option value="1" selected="selected">S</option>
+                            <option value="2">SS</option>
+                            <option value="3">SSS</option>
+                        </select>
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/choose_follow@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 使用武器 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">使用武器</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selwuqi2" name="selwuqi2" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selwuqi-btn">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 上位圣痕 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">上位圣痕</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selsheng2_1" name="selsheng2_1" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0"> 
+                            <div class="team_add_selmember selsheng2_1-btn selsheng" data-id="0">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 中位圣痕 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">中位圣痕</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selsheng2_2" name="selsheng2_2" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selsheng2_2-btn selsheng" data-id="1">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 下位圣痕 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">下位圣痕</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selsheng2_3" name="selsheng2_3" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selsheng2_3-btn selsheng" data-id="2">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- 队员2 -->
+                <div class="team_add_ipt_box">
+                    <div class="team_add_ipt_box_title">
+                        <img src="./static/img/team-recommen/member2_info@2x.png" alt="">
+                    </div>
+                    <!-- 选择队员2 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">选择队员</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selMember3" name="selMember3" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selMember3-btn"></div>
+                        </div>
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 角色评级 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/choose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">角色评级</div>
+                        <select name="usersex" class="pub_ipt_fill_half ver-mid" type="text">
+                            <option value="1" selected="selected">S</option>
+                            <option value="2">SS</option>
+                            <option value="3">SSS</option>
+                        </select>
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/choose_follow@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 使用武器 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">使用武器</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selwuqi3" name="selwuqi3" class="team_add_selipt pub_ipt_fill ver-mid" type="text"  value="0">
+                            <div class="team_add_selmember selwuqi-btn">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 上位圣痕 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">上位圣痕</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selsheng3_1" name="selsheng3_1" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selsheng3_1-btn selsheng" data-id="0">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 中位圣痕 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">中位圣痕</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selsheng3_2" name="selsheng3_2" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selsheng3_2-btn selsheng" data-id="1">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 下位圣痕 -->
+                    <div class="pub_ipt">
+                        <div class="pub_ipt_icon ver-mid">
+                            <img src="./static/img/chose@2x.png" alt="">
+                        </div>
+                        <div class="pub_ipt_text ver-mid">下位圣痕</div>
+                        <div class="pub_ipt_rela">
+                            <input id="selsheng3_3" name="selsheng3_3" class="team_add_selipt pub_ipt_fill ver-mid" type="text" value="0">
+                            <div class="team_add_selmember selsheng3_3-btn selsheng" data-id="2">默认</div>
+                        </div>
+                        <!-- <select name="usersex" class="pub_ipt_fill ver-mid" type="text">
+                            <option value="1" selected="selected">仿灵刀·冰昊天</option>
+                            <option value="2">仿灵刀·冰昊天2</option>
+                            <option value="3">仿灵刀·冰昊天3</option>
+                        </select> -->
+                        <div class="pub_ipt_select_icon ver-mid">
+                            <img src="./static/img/chose_with@2x.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- 队长队员公用列表 -->
+    <div class="team-make-box-selvalkyrie hide">
+        <div class="team_add_selvalkyrie  clearfix">
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="2" data-valkname="御神装·勿忘2">
+                <img src="./upload/avatar_03.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="3" data-valkname="御神装·勿忘3">
+                <img src="./upload/avatar_04.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="4" data-valkname="御神装·勿忘4">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="5" data-valkname="御神装·勿忘5">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="6" data-valkname="御神装·勿忘6">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="7" data-valkname="御神装·勿忘">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="8" data-valkname="御神装·勿忘2">
+                <img src="./upload/avatar_03.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘3">
+                <img src="./upload/avatar_04.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘4">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘5">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘6">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘2">
+                <img src="./upload/avatar_03.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘3">
+                <img src="./upload/avatar_04.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘4">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘5">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘6">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘2">
+                <img src="./upload/avatar_03.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘3">
+                <img src="./upload/avatar_04.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘4">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘5">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘6">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘2">
+                <img src="./upload/avatar_03.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘3">
+                <img src="./upload/avatar_04.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘4">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘5">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘6">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘2">
+                <img src="./upload/avatar_03.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘3">
+                <img src="./upload/avatar_04.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘4">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘5">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘6">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘2">
+                <img src="./upload/avatar_03.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘3">
+                <img src="./upload/avatar_04.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘4">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘5">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘6">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘2">
+                <img src="./upload/avatar_03.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘3">
+                <img src="./upload/avatar_04.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="1" data-catid="1" data-valkname="御神装·勿忘4">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="2" data-catid="1" data-valkname="御神装·勿忘5">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+            <div class="team_add_selvalkyrie_item" data-memberid="3" data-catid="1" data-valkname="御神装·勿忘6">
+                <img src="./upload/avatar_02.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 武器列表页 -->
+    <div class="team-make-box-wuqi hide">
+        <div class="team_add_wuqi clearfix">
+            <!-- <div class="team_add_wuqi_item" data-wuqiid="1" data-valkname="武器1">
+                <img src="./upload/avatar_02.png" alt="">
+                <p>武器1</p>
+            </div>
+            <div class="team_add_wuqi_item" data-wuqiid="2" data-valkname="武器12">
+                <img src="./upload/avatar_03.png" alt="">
+                <p>武器12</p>
+            </div>
+            <div class="team_add_wuqi_item" data-wuqiid="3" data-valkname="武器13">
+                <img src="./upload/avatar_04.png" alt="">
+                <p>武器13</p>
+            </div>
+            <div class="team_add_wuqi_item" data-wuqiid="4" data-valkname="武器14">
+                <img src="./upload/avatar_02.png" alt="">
+                <p>武器14</p>
+            </div>
+            <div class="team_add_wuqi_item" data-wuqiid="5" data-valkname="武器15">
+                <img src="./upload/avatar_02.png" alt="">
+                <p>武器15</p>
+            </div>
+            <div class="team_add_wuqi_item" data-wuqiid="6" data-valkname="武器16">
+                <img src="./upload/avatar_02.png" alt="">
+                <p>武器16</p>
+            </div> -->
+        </div>
+    </div>
+    <!-- 圣痕列表页 -->
+    <div class="team-make-box-sheng hide">
+        <div class="team_add_sheng clearfix">
+            <!-- <div class="team_add_sheng_item" data-shengid="1" data-valkname="圣痕1">
+                <img src="./upload/avatar_02.png" alt="">
+                <p>圣痕1</p>
+            </div>
+            <div class="team_add_sheng_item" data-shengid="2" data-valkname="圣痕12">
+                <img src="./upload/avatar_03.png" alt="">
+                <p>圣痕12</p>
+            </div>
+            <div class="team_add_sheng_item" data-shengid="3" data-valkname="圣痕13">
+                <img src="./upload/avatar_04.png" alt="">
+                <p>圣痕13</p>
+            </div>
+            <div class="team_add_sheng_item" data-shengid="4" data-valkname="圣痕14">
+                <img src="./upload/avatar_02.png" alt="">
+                <p>圣痕14</p>
+            </div>
+            <div class="team_add_sheng_item" data-shengid="5" data-valkname="圣痕15">
+                <img src="./upload/avatar_02.png" alt="">
+                <p>圣痕15</p>
+            </div>
+            <div class="team_add_sheng_item" data-shengid="6" data-valkname="圣痕16">
+                <img src="./upload/avatar_02.png" alt="">
+                <p>圣痕16</p>
+            </div> -->
+        </div>
+    </div>
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+    <script src="./static/libs/fastclick.js"></script>
+    <script src="./static/libs/ydui.js"></script>
+    <script src="./static/libs/laytpl.min.js"></script>
+    <script src="./static/js/utils.min.js"></script>
+    <script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+            // key 是角色id value 武器
+            let wuqiArr = {
+                "1":[{
+                    id:1,
+                    name:"武器1",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:11,
+                    name:"合金.保时捷到",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:12,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                }],
+                "2":[{
+                    id:2,
+                    name:"合金.保时捷到",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:21,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:22,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:23,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:24,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:200,
+                    name:"合金.保时捷到",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:210,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:220,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:230,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:240,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:2000,
+                    name:"合金.保时捷到",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:2100,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:2200,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:2300,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:2400,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:200000,
+                    name:"合金.保时捷到",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:210000,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:220000,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:230000,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:240000,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:200000,
+                    name:"合金.保时捷到",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:2100000,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:2200000,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:2300000,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:2400000,
+                    name:"试作型魔虫态岛",
+                    url:"./upload/avatar_03.png",
+                }],
+                "3":[{
+                    id:3,
+                    name:"武器3",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:31,
+                    name:"武器31",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:32,
+                    name:"武器32",
+                    url:"./upload/avatar_03.png",
+                }],
+                "4":[{
+                    id:43,
+                    name:"武器43",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:431,
+                    name:"武器431",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:432,
+                    name:"武器432",
+                    url:"./upload/avatar_03.png",
+                }],
+                "5":[{
+                    id:53,
+                    name:"武器53",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:531,
+                    name:"武器531",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:532,
+                    name:"武器532",
+                    url:"./upload/avatar_03.png",
+                }],
+                "6":[{
+                    id:63,
+                    name:"武器63",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:631,
+                    name:"武器631",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:632,
+                    name:"武器632",
+                    url:"./upload/avatar_03.png",
+                }],
+                "7":[{
+                    id:73,
+                    name:"武器73",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:731,
+                    name:"武器731",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:732,
+                    name:"武器732",
+                    url:"./upload/avatar_03.png",
+                }],
+                "8":[{
+                    id:83,
+                    name:"武器83",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:831,
+                    name:"武器831",
+                    url:"./upload/avatar_03.png",
+                },{
+                    id:832,
+                    name:"武器832",
+                    url:"./upload/avatar_03.png",
+                }]
+            }
+            // 圣痕
+            let shengArr = [{
+                pid:0,
+                name:"上痕",
+                child:[{
+                    id:1,
+                    name:"上痕10",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:2,
+                    name:"上痕100",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:3,
+                    name:"上痕1000111111111",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:11,
+                    name:"上痕10",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:12,
+                    name:"上痕100",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:13,
+                    name:"上痕1000111111111",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:21,
+                    name:"上痕10",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:22,
+                    name:"上痕100",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:23,
+                    name:"上痕1000111111111",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:31,
+                    name:"上痕10",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:32,
+                    name:"上痕100",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:33,
+                    name:"上痕1000111111111",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:41,
+                    name:"上痕10",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:42,
+                    name:"上痕100",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:43,
+                    name:"上痕1000111111111",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:51,
+                    name:"上痕10",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:52,
+                    name:"上痕100",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:53,
+                    name:"上痕1000111111111",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:61,
+                    name:"上痕10",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:62,
+                    name:"上痕100",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:63,
+                    name:"上痕1000111111111",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:71,
+                    name:"上痕10",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:72,
+                    name:"上痕100",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:73,
+                    name:"上痕1000111111111",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:81,
+                    name:"上痕10",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:82,
+                    name:"上痕100",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:83,
+                    name:"上痕1000111111111",
+                    url:"./upload/avatar_04.png",
+                }]
+            },{
+                pid:1,
+                name:"中痕",
+                child:[{
+                    id:1,
+                    name:"中痕1111",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:2,
+                    name:"中痕111111",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:3,
+                    name:"中痕111111",
+                    url:"./upload/avatar_04.png",
+                }]
+            },{
+                pid:2,
+                name:"下痕",
+                child:[{
+                    id:1,
+                    name:"下痕122222",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:2,
+                    name:"下痕122222",
+                    url:"./upload/avatar_04.png",
+                },{
+                    id:3,
+                    name:"下痕122222",
+                    url:"./upload/avatar_04.png",
+                }]
+            }]
+            let senceApi = './data/team-recommen-add.json';
+            let floorApi = './data/team-recommen-add2.json';
+
+            let sBtnIndex = '';
+            let _shengHtml = '';
+            let _wuqiHtml = '';
+            let wuqiIndex = '';
+           
+            $('.selMember1-btn').on('click',function(){
+                sBtnIndex = '1';
+                $('.team-make-box-selvalkyrie').removeClass('hide');
+				ModalHelper.afterOpen();
+            });
+            $('.selwuqi-btn').on('click',function(){
+               
+                if(sBtnIndex !== ''){
+                    var $this = $(this);
+                    if(sBtnIndex === '1'){
+                        wuqiIndex = $('#selMember1').val().split(",")[1]
+                    }else if(sBtnIndex === '2'){
+                        wuqiIndex = $('#selMember2').val().split(",")[1]
+                    }else if(sBtnIndex === '3'){
+                        wuqiIndex = $('#selMember3').val().split(",")[1]
+                    }
+					console.log(wuqiIndex)
+					$("#_wid").val($(this).parent().find("input").attr("id"))
+                    _wuqiHtml = '';
+                    for(var i in wuqiArr){
+                        if(wuqiArr.hasOwnProperty(i) && wuqiIndex === i){
+                            for(let j=0;j<wuqiArr[i].length;j++){
+                                _wuqiHtml += '<div class="team_add_wuqi_item" data-wuqiid='+wuqiArr[i][j].id+' data-valkname='+wuqiArr[i][j].name+'>';
+                                _wuqiHtml += '<img src='+wuqiArr[i][j].url+' alt=""><p>'+wuqiArr[i][j].name+'</p>';
+                                _wuqiHtml += '</div>';
+                            }
+                            $('.team-make-box-wuqi .team_add_wuqi').html(_wuqiHtml);
+                            $('.team-make-box-wuqi').removeClass('hide');
+							ModalHelper.afterOpen();
+                        }
+                    }
+                }else{
+                    alert('请选择队长')
+                }
+            });
+			$('.team-make-box-wuqi').on('click', ' .team_add_wuqi_item', function(e){
+			e.stopPropagation();
+				$("#"+$("#_wid").val()).val($(this).data('wuqiid'));
+				$("#"+$("#_wid").val()).parent().find(".selwuqi-btn").html($(this).data('valkname'));
+				$('.team-make-box-wuqi').addClass('hide');
+				ModalHelper.beforeClose();
+			})
+            $('.selsheng').on('click',function(){
+                let $this = $(this), 
+                    _id = $(this).data("id"),
+                    _shengHtml = "";
+					$("#_sid").val($(this).parent().find("input").attr("id"));
+                for(let i=0;i<shengArr[_id].child.length;i++){
+                    _shengHtml += '<div class="team_add_sheng_item" data-shengid='+shengArr[_id].child[i].id+' data-valkname='+shengArr[_id].child[i].name+'>';
+                    _shengHtml += '<img src='+shengArr[_id].child[i].url+' alt=""><p>'+shengArr[_id].child[i].name+'</p>';
+                    _shengHtml += '</div>';
+                }
+				
+                $('.team-make-box-sheng .team_add_sheng').html(_shengHtml);
+                $('.team-make-box-sheng').removeClass('hide');
+				ModalHelper.afterOpen();
+            });
+			    $('.team-make-box-sheng').on('click','.team_add_sheng_item',function(e){
+				e.stopPropagation();
+                   $("#"+$("#_sid").val()).val($(this).data('shengid'));
+                   $("#"+$("#_sid").val()).parent().find(".selsheng").html($(this).data('valkname'));
+                   $('.team-make-box-sheng').addClass('hide');
+				   ModalHelper.beforeClose();
+                })
+            $('.selMember2-btn').on('click',function(){
+                sBtnIndex = '2';
+                $('.team-make-box-selvalkyrie').removeClass('hide');
+				ModalHelper.afterOpen();
+            });
+            $('.selMember3-btn').on('click',function(){
+                sBtnIndex = '3';
+                $('.team-make-box-selvalkyrie').removeClass('hide');
+				ModalHelper.afterOpen();
+            });
+            $('.team_add_selvalkyrie_item').on('click',function(e){
+			e.stopPropagation();
+                switch(sBtnIndex){
+                    case '1' : 
+                        $('#selMember1').val($(this).data('memberid')+','+$(this).data('catid'));
+                        $('.selMember1-btn').html($(this).data('valkname'));
+                        if($("#selwuqi1").val() !="0"){
+                            $("#selwuqi1").val("");
+						    $("#selwuqi1").parent().find(".selwuqi-btn").html("")
+                        }
+
+                        break
+                    case '2' : 
+                        $('#selMember2').val($(this).data('memberid')+','+$(this).data('catid'));
+                        $('.selMember2-btn').html($(this).data('valkname'));
+                        if($("#selwuqi2").val()!="0"){
+                            $("#selwuqi2").val("");
+                            $("#selwuqi2").parent().find(".selwuqi-btn").html("")
+                        }
+                        break
+                    case '3' : 
+                        $('#selMember3').val($(this).data('memberid')+','+$(this).data('catid'));
+                        $('.selMember3-btn').html($(this).data('valkname'));
+                        if($("#selwuqi3").val()!=0){
+                            $("#selwuqi3").val("");
+                            $("#selwuqi3").parent().find(".selwuqi-btn").html("")
+                        }
+                        break
+                    default: sBtnIndex = '';
+                };
+                $('.team-make-box-selvalkyrie').addClass('hide');
+				ModalHelper.beforeClose();
+            });
+            // 获取场景
+            // fetchSence();
+            // $('#selType').change(function(){
+            //     fetchSence()
+            // })
+            // 获取楼层
+            fetchFloor()
+            $('#selScene').change(function(){
+                fetchFloor()
+            })
+            // 提交
+            $('.header_handle').on('click',function(){
+				let sel1M = $("#selMember1").val(),
+					sel2M = $("#selMember2").val(),
+					sel3M = $("#selMember3").val(),
+					wu1M = $("#selwuqi1").val(),
+					wu2M = $("#selwuqi2").val(),
+					wu3M = $("#selwuqi3").val(),
+					sheng11M = $("#selsheng1_1").val(),
+					sheng12M = $("#selsheng1_2").val(),
+					sheng13M = $("#selsheng1_3").val(),
+					sheng21M = $("#selsheng2_1").val(),
+					sheng22M = $("#selsheng2_2").val(),
+					sheng23M = $("#selsheng2_3").val(),
+					sheng31M = $("#selsheng3_1").val(),
+					sheng32M = $("#selsheng3_2").val(),
+					sheng33M = $("#selsheng3_3").val();
+                    
+				if(!parseInt(sel1M)){ alert("队长不能为空"); return false}
+				if(!parseInt(sel2M)){ alert("队员1不能为空"); return false}
+				if(!parseInt(sel3M)){ alert("队员2不能为空"); return false}
+
+				alert(
+				"推荐标题==="+$("input[name=username]").val()+"<br>"+
+				"使用场景==="+$("#selScene").val()+","+$("#selScene").find("option:selected").text()+"<br>"+
+				"使用场景==="+$("#selFloor").val()+","+$("#selFloor").find("option:selected").text()+"<br>"+
+
+				
+					"队长id:=="+sel1M+"<br>"+
+					"队长姓名:=="+$.trim($("#selMember1").parent().find(".selMember1-btn").html())+"<br>"+
+					"队长武器id:=="+wu1M+"<br>"+
+					"队长武器名称:=="+$.trim($("#selwuqi1").parent().find(".selwuqi-btn").html())+"<br>"+
+					"队长上圣痕id:=="+sheng11M+"<br>"+
+					"队长上圣痕名称:=="+$.trim($("#selsheng1_1").parent().find(".selsheng").html())+"<br>"+
+					"队长中圣痕id:=="+sheng12M+"<br>"+
+					"队长中圣痕名称:=="+$.trim($("#selsheng1_2").parent().find(".selsheng").html())+"<br>"+	
+					"队长下圣痕id:=="+sheng13M+"<br>"+
+					"队长下圣痕名称:=="+$.trim($("#selsheng1_3").parent().find(".selsheng").html())+"<br>"+	
+					
+					"队员1id:=="+sel2M+"<br>"+
+										"队员1姓名:=="+$.trim($("#selMember2").parent().find(".selMember2-btn").html())+"<br>"+
+					"队员1武器id:=="+wu1M+"<br>"+
+					"队员1武器名称:=="+$.trim($("#selwuqi2").parent().find(".selwuqi-btn").html())+"<br>"+
+					"队员1上圣痕id:=="+sheng11M+"<br>"+
+					"队员1上圣痕名称:=="+$.trim($("#selsheng2_1").parent().find(".selsheng").html())+"<br>"+
+					"队员1中圣痕id:=="+sheng12M+"<br>"+
+					"队员1中圣痕名称:=="+$.trim($("#selsheng2_2").parent().find(".selsheng").html())+"<br>"+	
+					"队员1下圣痕id:=="+sheng13M+"<br>"+
+					"队员1下圣痕名称:=="+$.trim($("#selsheng2_3").parent().find(".selsheng").html())+"<br>"+	
+					"队员2id:=="+sel3M+"<br>"+
+										"队员2姓名:=="+$.trim($("#selMember3").parent().find(".selMember3-btn").html())+"<br>"+
+					"队员2武器id:=="+wu1M+"<br>"+
+					"队员2武器名称:=="+$.trim($("#selwuqi3").parent().find(".selwuqi-btn").html())+"<br>"+
+					"队员2上圣痕id:=="+sheng11M+"<br>"+
+					"队员2上圣痕名称:=="+$.trim($("#selsheng3_1").parent().find(".selsheng").html())+"<br>"+
+					"队员2中圣痕id:=="+sheng12M+"<br>"+
+					"队员2中圣痕名称:=="+$.trim($("#selsheng3_2").parent().find(".selsheng").html())+"<br>"+	
+					"队员2下圣痕id:=="+sheng13M+"<br>"+
+					"队员2下圣痕名称:=="+$.trim($("#selsheng3_3").parent().find(".selsheng").html())+"<br>"	
+				);
+				//$('#addForm').submit();
+                
+            });
+            
+            function fetchSence() {
+                $.ajax({
+                    url: senceApi,
+                    dataType: 'json',
+                    data: {
+                        type: $('#selType').val()
+                    },
+                    success: function (ret) {
+                        var retData = ret.data;
+                        $('#selScene').html('')
+                        for (let i = 0; i < retData.length; i++) {
+                            $('#selScene').append('<option value="'+retData[i].id+'" '+ (i === 0 ? 'selected' : '') +'>'+retData[i].name+'</option>')
+                        }
+                        fetchFloor()
+                    }
+                });
+            }
+            function fetchFloor() {
+                $.ajax({
+                    url: floorApi,
+                    dataType: 'json',
+                    data: {
+                        type: $('#selScene').val()
+                    },
+                    success: function (ret) {
+                        var retData = ret.data;
+                        $('#selFloor').html('')
+                        for (let i = 0; i < retData.length; i++) {
+                            $('#selFloor').append('<option value="'+retData[i].id+'" '+ (i === 0 ? 'selected' : '') +'>'+retData[i].name+'</option>')
+                        }
+                    }
+                });
+            }
+        });
+		
+
+		var ModalHelper = (function(bodyCls) {
+			var scrollTop;
+			return {
+			  afterOpen: function() {
+				scrollTop = document.scrollingElement.scrollTop;
+				document.body.classList.add(bodyCls);
+				document.body.style.top = -scrollTop + 'px';
+			  },
+			  beforeClose: function() {
+				document.body.classList.remove(bodyCls);
+				document.scrollingElement.scrollTop = scrollTop;
+			  }
+			};
+		})('modal-open');	
+		
+    </script>
+    <!--script end-->
+</body>
+
+</html>

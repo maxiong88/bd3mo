@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="author" content="Yowant FE Team" />
+<meta name="Description" content="页面说明" />
+<meta name="Keywords" content="页面关键字" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<!--[禁用页面缓存 start]-->
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<!--[禁用页面缓存 end]-->
+<title>我的消息</title>
+<script src="./static/libs/flexible.js"></script>
+<link rel="stylesheet" href="./static/css/common.min.css"/>
+<link rel="stylesheet" href="./static/css/ydui.min.css" />
+</head>
+
+<body>
+    <header class="header_wrap header_bot_bor">
+        <div class="header_back" onclick="window.history.back(-1);">
+            <div class="header_back_icon ver-mid">
+                <img src="./static/img/back@2x.png" alt="">
+            </div>
+            <div class="header_back_text ver-mid"></div>
+        </div>
+        <div class="header_title">我的消息</div>
+    </header>
+    <section class="MD_myNews_box">
+        <div class="news_tab">
+            <div class="item_1 item_0 on" data-type="1">
+                <span class="comment" id="my_news_hot_comment">
+                    <i>99</i>
+                </span>
+                <span class="tit">评论</span>
+            </div>
+            <!-- <div class="item_2 item_0" data-type="2">
+                <span class="bbs" id="my_news_hot_bbs">
+                    <i>9</i>
+                </span>
+                <span class="tit">论坛</span>
+            </div> -->
+        </div>
+        <ul id="J-infoBox" class="p_comment_box">
+           
+        </ul>
+    </section>
+    <!-- template -->
+    <script  type="text/html" id="J-tplCommentList">
+        {{#for(var i in d){}}
+        <li>
+            <a href="./comment_details.html?msgId={{d[i].msgId}}">
+                <div class="details_tou">
+                    <img src="{{d[i].msgAuthorImg}}" alt="头像" class="tou_img">
+                    <p><span>{{d[i].msgAuthorName}}</span>回复了你的评论</p>
+                    <span class="time">{{d[i].tm}}</span>
+                </div>
+                <p class="txt">{{d[i].msgContent}}
+                </p>
+            </a>
+        </li>
+        {{#}}}
+    </script>
+    <!--script start-->
+    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+    <script src="./static/libs/fastclick.js"></script>
+    <script src="./static/libs/ydui.js"></script>
+    <script src="./static/libs/laytpl.min.js"></script>
+    <script src="./static/js/common.min.js"></script>
+    <script>
+        $(function () {
+            var sl = new bh.myNews();
+            //接口、restfull、openid
+            sl.setDataApi('./data/myNews.json', 'GET', '1234567890');
+            // 1.模板2.容器3.页码4.每次请求/条数
+            sl.init('#J-tplCommentList', '#J-infoBox', 1, 10);
+ 
+        });
+    </script>
+    <!--script end-->
+</body>
+
+</html>
