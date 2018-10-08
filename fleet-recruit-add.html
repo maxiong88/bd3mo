@@ -64,35 +64,35 @@
                             <img src="./static/img/write@2x.png" alt="">
                         </div>
                         <div class="pub_ipt_text ver-mid">舰队名称</div>
-                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" minlength="2" maxlength="15" placeholder="2-15字">
+                        <input name="username" class="pub_ipt_fill ver-mid" id="fleet_name" type="text" value="" minlength="2" maxlength="15" placeholder="2-15字">
                     </div>
                     <div class="pub_ipt">
                         <div class="pub_ipt_icon ver-mid">
                             <img src="./static/img/write@2x.png" alt="">
                         </div>
                         <div class="pub_ipt_text ver-mid">舰团ID</div>
-                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" placeholder="ID">
+                        <input name="username" class="pub_ipt_fill ver-mid" id="fleet_id" type="text" value="" placeholder="ID">
                     </div>
                     <div class="pub_ipt">
                         <div class="pub_ipt_icon ver-mid">
                             <img src="./static/img/write@2x.png" alt="">
                         </div>
                         <div class="pub_ipt_text ver-mid">QQ群号</div>
-                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" placeholder="群号">
+                        <input name="username" class="pub_ipt_fill ver-mid" id="fleet_qq" type="text" value="" placeholder="群号">
                     </div>
                     <div class="pub_ipt">
                         <div class="pub_ipt_icon ver-mid">
                             <img src="./static/img/write@2x.png" alt="">
                         </div>
                         <div class="pub_ipt_text ver-mid">招募标题</div>
-                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" maxlength="100" placeholder="取一个响亮的标题吧！">
+                        <input name="username" class="pub_ipt_fill ver-mid" id="fleet_re_tit" type="text" value="" maxlength="30" placeholder="取一个响亮的标题吧！">
                     </div>
                     <div class="pub_ipt pub_textarea">
                         <div class="pub_ipt_icon ver-mid">
                             <img src="./static/img/write@2x.png" alt="">
                         </div>
                         <div class="pub_ipt_text ver-mid">详细介绍</div>
-                        <textarea name="username" class="pub_textarea_fill ver-mid" type="text" value="" maxlength="300" placeholder="关于舰团，说点啥吧"></textarea>
+                        <textarea name="username" class="pub_textarea_fill ver-mid" id="fleet_details" type="text" value="" maxlength="300" placeholder="关于舰团，说点啥吧"></textarea>
                     </div>
                     <div class="pub_ipt pub_upload">
                         <div class="pub_ipt_icon ver-mid">
@@ -123,6 +123,10 @@
     <script>
         $(function () {
             $('.header_handle').on('click',function(){
+                if(!$("#fleet_name").val()){
+                    YDUI.dialog.alert('暂未开放！');
+                    return ;
+                }
                 $('#addForm').submit();
                 //alert($("#fleet_recruit_add_picsel").val())
             });
