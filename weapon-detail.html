@@ -316,11 +316,9 @@
     <script>
         $(function () {
 		   var vd = new bh.weapon();
-            vd.init();
-            var info = new bh.scrollList();
-            info.setDataApi('./data/information.json');
+            vd.setDataApi('./data/information1.json');
             // 1.模板2.容器3.页码4.每次请求/条数
-            info.init('#J-tplList','#J-infoBox',1,10);
+            vd.init('#J-tplList','#J-infoBox',1,10);
         });
     </script>
     <!--script end-->

@@ -64,35 +64,39 @@
                             <img src="./static/img/write@2x.png" alt="">
                         </div>
                         <div class="pub_ipt_text ver-mid">舰队名称</div>
-                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" minlength="2" maxlength="15" placeholder="2-15字">
+                        <input name="username" class="pub_ipt_fill ver-mid" id="fleet_name" type="text" value="" minlength="2" maxlength="15" placeholder="2-15字">
                     </div>
                     <div class="pub_ipt">
                         <div class="pub_ipt_icon ver-mid">
                             <img src="./static/img/write@2x.png" alt="">
                         </div>
                         <div class="pub_ipt_text ver-mid">舰团ID</div>
-                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" placeholder="ID">
+                        <input name="username" class="pub_ipt_fill ver-mid" id="fleet_id" type="text" value="" placeholder="ID">
                     </div>
                     <div class="pub_ipt">
                         <div class="pub_ipt_icon ver-mid">
                             <img src="./static/img/write@2x.png" alt="">
                         </div>
                         <div class="pub_ipt_text ver-mid">QQ群号</div>
-                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" placeholder="群号">
+                        <input name="username" class="pub_ipt_fill ver-mid" id="fleet_qq" type="text" value="" placeholder="群号">
                     </div>
                     <div class="pub_ipt">
                         <div class="pub_ipt_icon ver-mid">
                             <img src="./static/img/write@2x.png" alt="">
                         </div>
                         <div class="pub_ipt_text ver-mid">招募标题</div>
-                        <input name="username" class="pub_ipt_fill ver-mid" type="text" value="" maxlength="100" placeholder="取一个响亮的标题吧！">
+                        <input name="username" class="pub_ipt_fill ver-mid" id="fleet_re_tit" type="text" value="" maxlength="30" placeholder="取一个响亮的标题吧！">
                     </div>
                     <div class="pub_ipt pub_textarea">
                         <div class="pub_ipt_icon ver-mid">
                             <img src="./static/img/write@2x.png" alt="">
                         </div>
                         <div class="pub_ipt_text ver-mid">详细介绍</div>
-                        <textarea name="username" class="pub_textarea_fill ver-mid" type="text" value="" maxlength="300" placeholder="关于舰团，说点啥吧"></textarea>
+                        <div class="pub_textarea_fill ver-mid pub_text_20181010">
+                            <textarea name="username" class="pub_textarea_fill ver-mid"  id="fleet_details" type="text" value="" maxlength="500" placeholder="关于舰团，说点啥吧"></textarea>
+                            <p>可输入<span id="fleet_details_num">500</span>字</p>
+                        </div>
+                       
                     </div>
                     <div class="pub_ipt pub_upload">
                         <div class="pub_ipt_icon ver-mid">
@@ -123,11 +127,57 @@
     <script>
         $(function () {
             $('.header_handle').on('click',function(){
+                if(!$("#fleet_name").val()){
+                    YDUI.dialog.alert('请输入战舰名称2-15个字');
+                    return ;
+                }
+                if($("#fleet_name").val().length<2){
+                    YDUI.dialog.alert('战舰名称最少两个字');
+                    return ;
+                }
+                if(!$("#fleet_id").val()){
+                    YDUI.dialog.alert('请输入战舰ID');
+                    return ;
+                }
+                if(!$("#fleet_qq").val()){
+                    YDUI.dialog.alert('请输入QQ群号');
+                    return ;
+                }
+                if(!$("#fleet_re_tit").val()){
+                    YDUI.dialog.alert('请输入招募标题');
+                    return ;
+                }
+                if(!$("#fleet_details").val()){
+                    YDUI.dialog.alert('请输入详情介绍');
+                    return ;
+                }
                 $('#addForm').submit();
                 //alert($("#fleet_recruit_add_picsel").val())
             });
 
         });
+        var editorArea = document.querySelector('#fleet_details')
+        var editorBacker = document.querySelector('.editor-backer')
+        var counter = document.querySelector('#fleet_details_num')
+        var limitCnt = 500
+        var isComposing = false
+        var flag = true;
+        $('#fleet_details').on('compositionstart',function(){
+            flag = false;
+        })
+        $('#fleet_details').on('compositionend',function(){
+            flag = true;
+        })
+        $('#fleet_details').on('input',function(){
+            var _this = this;
+            setTimeout(function(){
+                if(flag){
+                    var remainingCnt = limitCnt - $.trim($(_this).val()).length;
+                    $("#fleet_details_num").html(remainingCnt)
+                    // console.log($(_this).val());
+                }
+            },0)
+        })
         function changImg(e){  
                 for (var i = 0; i < e.target.files.length; i++) {  
                     var file = e.target.files.item(i);  
