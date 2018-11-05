@@ -3,21 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-<meta name="author" content="Yowant FE Team" />
-<meta name="Description" content="页面说明" />
-<meta name="Keywords" content="页面关键字" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="format-detection" content="telephone=no" />
-<!--[禁用页面缓存 start]-->
-<meta http-equiv="Expires" content="-1">
-<meta http-equiv="Cache-Control" content="no-cache">
-<meta http-equiv="Pragma" content="no-cache">
-<!--[禁用页面缓存 end]-->
-<title>首页</title>
-<script src="./static/libs/flexible.js"></script>
-<link rel="stylesheet" href="./static/css/common.min.css"/>
-<link rel="stylesheet" href="./static/css/ydui.min.css" />
+    <meta name="author" content="Yowant FE Team" />
+    <meta name="Description" content="页面说明" />
+    <meta name="Keywords" content="页面关键字" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <!--[禁用页面缓存 start]-->
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <!--[禁用页面缓存 end]-->
+    <title>首页</title>
+    <script src="./static/libs/flexible.js"></script>
+    <link rel="stylesheet" href="./static/css/common.min.css"/>
+    <link rel="stylesheet" href="./static/css/ydui.min.css" />
 </head>
 
 <body>
@@ -100,6 +100,7 @@
         </div>
     </header>
     <div class="sidebar_content">
+        <!---- 登陆成功  start--->
         <div class="sidebar_content_title">
             <a class="full-box" href="./edit-info.html">
                 <div class="sidebar_content_title_pic ver-mid">
@@ -108,6 +109,18 @@
                 <div class="side_content_title_name ver-mid">射射发抖</div>
             </a>
         </div>
+        <!---- 登陆成功  end--->
+
+        <!----未登录状态 start---->
+        <div class="sidebar_content_title">
+            <a class="full-box" href="javascript:;">
+                <div class="sidebar_content_title_pic ver-mid">
+                    <img src="./upload/no_login_avatar.png" alt="">
+                </div>
+                <div class="side_content_title_name ver-mid">点击登陆</div>
+            </a>
+        </div>
+        <!----未登录 end---->
         <ul class="side_content_link">
             <li class="side_content_link_item">
                 <a  href="./index.html">
