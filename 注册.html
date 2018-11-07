@@ -36,23 +36,16 @@
 			<div class="pass_recovery_error">
 				<div class="hidden">
 					<i></i>
-					<span>密码不一致</span>
+					<span>账号格式错误</span>
 				</div>
-				
 			</div>
 			<div class="pass_recovery_box">
-				<div class="mail_pass_box">
-					<div class="mail_code_pass">
-						<input type="text" id="mail_pass_one" class="input_cla" placeholder="请输入您的邮箱地址">
-						<a href="javascript:;" id="mail_pass_code">获取验证码</a>
-					</div>
-					<input type="text" id="mail_pass_two" placeholder="请输入验证码" class="input_cla">
-				</div>
-				<div class="conf_pass_box hidden">
+				<div class="conf_pass_box">
+					<input type="text" id="email" placeholder="请输入账号（仅邮箱地址）" class="input_cla">
 					<input type="text" id="conf_pass_one" placeholder="输入新密码" class="input_cla">
 					<input type="text" id="conf_pass_two" placeholder="确认密码" class="input_cla">
 				</div>
-				<a href="javascript:;" id="pass_recovery_btn" class="recovery_btn">下一步</a>
+				<a href="javascript:;" id="registered_btn" class="recovery_btn">下一步</a>
 			</div>
 		</div>
 	</section>
@@ -63,35 +56,68 @@
     <script>
         $(function () {
 			var flagName = '';
-			$('#mail_pass_code').on('click', function(){
-				// 倒计时
-				
-			})
-			$('#pass_recovery_btn').on('click', function(){
-				// 下一步 1
-				if(!$('.mail_pass_box').hasClass('hidden')){
-
-
-					$('.pass_recovery_error').find('span').html('验证码错误');
-					$('.pass_recovery_error > div').show();
-
-
-
-					$('#pass_recovery_btn').html('确认修改');
-
-					$('.mail_pass_box').addClass('hidden');
-					$('.conf_pass_box').removeClass('hidden');
+			function checkEmail(str){
+				var emailRe = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
+				if(emailRe.test(str)){
+					return true;
+				}else{
+					return false;
 				}
-				// 确认修改
-				if(!$('.conf_pass_box').hasClass('hidden')){
-					// 	密码不一致
-					if($.trim($('#conf_pass_one').val()) !== $.trim($('#conf_pass_two').val())){
-						$('.pass_recovery_error').find('span').html('密码不一致');
-						$('.pass_recovery_error > div').show();
-					}
-					// 验证码错误
+			}
+			function checkPass(str){
+				var flag = 0;
+				if(/^[a-z]+$/.test(str)){
+					++flag
 				}
-				// 
+				if(/^[A-Z]+$/.test(str)){
+					++flag
+				}
+				if(/^[0-9]+$/.test(str)){
+					++flag
+				}
+				if(flag === 3){
+					return true;
+				}
+			}
+			$('#registered_btn').on('click', function(){
+				var $email = $('#email').val();
+				var $conf_pass_one = $('#conf_pass_one').val();
+				var $conf_pass_two = $('#conf_pass_two').val();
+				if($email === ''){
+					$('.pass_recovery_error span').html('请输入邮箱');
+					$('.pass_recovery_error div').show();
+					return ;
+				}
+				if($email.length < 8 || $email.length > 30){
+					$('.pass_recovery_error span').html('邮箱格式校验：邮箱格式错误');
+					$('.pass_recovery_error div').show();
+					return ;
+				}
+				if(!checkEmail($email)){
+					$('.pass_recovery_error span').html('邮箱格式校验：邮箱格式错误');
+					$('.pass_recovery_error div').show();
+					return ;
+				}
+				if($conf_pass_one === ''){
+					$('.pass_recovery_error span').html('请输入密码');
+					$('.pass_recovery_error div').show();
+					return ;
+				}
+				if($conf_pass_one.length<6 || $conf_pass_one.length>18){
+					$('.pass_recovery_error span').html('密码过长/过短：请输入6-18位密码');
+					$('.pass_recovery_error div').show();
+					return ;
+				}
+				if(!checkPass($conf_pass_one)){
+					$('.pass_recovery_error span').html('密码格式错误：密码中包含特殊字符');
+					$('.pass_recovery_error div').show();
+					return ;
+				}
+				if($conf_pass_one !== $conf_pass_one){
+					$('.pass_recovery_error span').html('与新密码不一致：密码不一致');
+					$('.pass_recovery_error div').show();
+					return ;
+				}
 			})
         });
     </script>
