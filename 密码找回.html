@@ -21,79 +21,150 @@
 </head>
 
 <body>
-    <!-- 引入头部导航 -->
-    <header class="header_wrap">
-		<div class="header_back" onclick="window.history.back(-1);">
-			<div class="header_back_icon ver-mid">
-				<img src="./static/img/back@2x.png" alt="">
+	<div id="v-app" v-cloak>
+		<!-- 引入头部导航 -->
+		<header class="header_wrap">
+			<div class="header_back" onclick="window.history.back(-1);">
+				<div class="header_back_icon ver-mid">
+					<img src="./static/img/back@2x.png" alt="">
+				</div>
+				<div class="header_back_text ver-mid"></div>
 			</div>
-			<div class="header_back_text ver-mid"></div>
-		</div>
-		<div class="header_title">密码找回</div>
-	</header>
-	<section class="pass_recovery_1105">
-		<div class="pass_recovery_con">
-			<div class="pass_recovery_error">
-				<div class="hidden">
+			<div class="header_title">密码找回</div>
+		</header>
+		<section class="password_recovery_box">
+			<div class="error">
+				<div  v-if="isError">
 					<i></i>
-					<span>密码不一致</span>
+					<span>{{isErrorText}}</span>
 				</div>
-				
 			</div>
-			<div class="pass_recovery_box">
-				<div class="mail_pass_box">
-					<div class="mail_code_pass">
-						<input type="text" id="mail_pass_one" class="input_cla" placeholder="请输入您的邮箱地址">
-						<a href="javascript:;" id="mail_pass_code">获取验证码</a>
+			<div class="mail_item_1" v-if="emailItem1">
+				<input type="text" class="input_cla" ref="email" v-model="email" placeholder="请输入您的邮箱地址">
+				<a href="javascript:;" @click="recovery_btn(1)" class="recovery_btn">下一步</a>
+			</div>
+			<div class="mail_item_2" v-if="emailItem2">
+				<div class="mail_code_pass">
+					<input type="text" ref="email" v-model="email" class="input_cla">
+					<a href="javascript:;" id="mail_pass_code">获取验证码</a>
+				</div>
+				<input type="text" class="input_cla" ref="emailCode" v-model="emailCode" placeholder="请输入验证码">
+				<a href="javascript:;" @click="recovery_btn(1)" class="recovery_btn">下一步</a>
+			</div>
+			<!-- <div @click="s">11</div> -->
+		</section>
+		<!-- <section class="pass_recovery_1105">
+			<div class="pass_recovery_con">
+				<div class="pass_recovery_error">
+					<div class="hidden">
+						<i></i>
+						<span>密码不一致</span>
 					</div>
-					<input type="text" id="mail_pass_two" placeholder="请输入验证码" class="input_cla">
 				</div>
-				<div class="conf_pass_box hidden">
-					<input type="text" id="conf_pass_one" placeholder="输入新密码" class="input_cla">
-					<input type="text" id="conf_pass_two" placeholder="确认密码" class="input_cla">
+				<div class="pass_recovery_box">
+					<div class="mail_pass_box">
+						<div class="mail_code_pass">
+							<input type="text" id="mail_pass_one" class="input_cla" placeholder="请输入您的邮箱地址">
+							<a href="javascript:;" id="mail_pass_code">获取验证码</a>
+						</div>
+						<input type="text" id="mail_pass_two" placeholder="请输入验证码" class="input_cla">
+					</div>
+					<div class="conf_pass_box hidden">
+						<input type="text" id="conf_pass_one" placeholder="输入新密码" class="input_cla">
+						<input type="text" id="conf_pass_two" placeholder="确认密码" class="input_cla">
+					</div>
+					<a href="javascript:;" id="pass_recovery_btn" class="recovery_btn">下一步</a>
 				</div>
-				<a href="javascript:;" id="pass_recovery_btn" class="recovery_btn">下一步</a>
 			</div>
-		</div>
-	</section>
+		</section> -->
+	</div>
+
 	
     <!--script start-->
-    <script src="./static/libs/jquery-2.2.4.min.js"></script>
+	<script src="./static/libs/jquery-2.2.4.min.js"></script>
+	<script src="./static/libs/vue.min.js"></script>
 	<script src="./static/libs/fastclick.js"></script>
     <script>
-        $(function () {
-			var flagName = '';
-			$('#mail_pass_code').on('click', function(){
-				// 倒计时
+		window.$vm = new Vue({
+			el: '#v-app',
+			data: function(){
+				return {
+					emailItem1: true,
+					emailItem2: false,
+					emailItem3: false,
+					isError: false,
+					isErrorText: '',
+					email: '',
+					emailCode: ''
+				}
+			},
+			methods:{
+				emailVerifyCode(){
+					// 获取邮箱验证码
+					
+				},
+				validators(type){
+					var v = {
+						email: {
+							message: '请输入正确的邮箱地址',
+							check: function (val) {
+								var emailReg = /[\w-.]+@[\w-]+(.[\w_-]+)+/;
+								return emailReg.test(val);
+							}
+						},
+					};
+					return v[type];
+				},
 				
-			})
-			$('#pass_recovery_btn').on('click', function(){
-				// 下一步 1
-				if(!$('.mail_pass_box').hasClass('hidden')){
-
-
-					$('.pass_recovery_error').find('span').html('验证码错误');
-					$('.pass_recovery_error > div').show();
-
-
-
-					$('#pass_recovery_btn').html('确认修改');
-
-					$('.mail_pass_box').addClass('hidden');
-					$('.conf_pass_box').removeClass('hidden');
-				}
-				// 确认修改
-				if(!$('.conf_pass_box').hasClass('hidden')){
-					// 	密码不一致
-					if($.trim($('#conf_pass_one').val()) !== $.trim($('#conf_pass_two').val())){
-						$('.pass_recovery_error').find('span').html('密码不一致');
-						$('.pass_recovery_error > div').show();
+				recovery_btn(v){
+					if(v === 1){
+						if(!this.validators('email').check(this.email)){
+							this.$refs.email.focus();
+							this.isError = true;
+							this.isErrorText = this.validators('email').message;
+						}else{
+							this.emailItem1 = false;
+							this.emailItem2 = true;
+						}
+						
 					}
-					// 验证码错误
+					
 				}
-				// 
-			})
-        });
+			}
+		})
+        // $(function () {
+		// 	var flagName = '';
+		// 	$('#mail_pass_code').on('click', function(){
+		// 		// 倒计时
+				
+		// 	})
+		// 	$('#pass_recovery_btn').on('click', function(){
+		// 		// 下一步 1
+		// 		if(!$('.mail_pass_box').hasClass('hidden')){
+
+
+		// 			$('.pass_recovery_error').find('span').html('验证码错误');
+		// 			$('.pass_recovery_error > div').show();
+
+
+
+		// 			$('#pass_recovery_btn').html('确认修改');
+
+		// 			$('.mail_pass_box').addClass('hidden');
+		// 			$('.conf_pass_box').removeClass('hidden');
+		// 		}
+		// 		// 确认修改
+		// 		if(!$('.conf_pass_box').hasClass('hidden')){
+		// 			// 	密码不一致
+		// 			if($.trim($('#conf_pass_one').val()) !== $.trim($('#conf_pass_two').val())){
+		// 				$('.pass_recovery_error').find('span').html('密码不一致');
+		// 				$('.pass_recovery_error > div').show();
+		// 			}
+		// 			// 验证码错误
+		// 		}
+		// 		// 
+		// 	})
+        // });
     </script>
     <!--script end-->
 </body>
