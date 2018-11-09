@@ -16,8 +16,13 @@
 	<!--[禁用页面缓存 end]-->
 	<title>密码找回</title>
 	<script src="./static/libs/flexible.js"></script>
-	<link rel="stylesheet" href="./static/css/common.min.css"/>
 	<link rel="stylesheet" href="./static/css/ydui.min.css" />
+	<link rel="stylesheet" href="./static/css/common.min.css"/>
+	<style>
+		body,html{
+			height: auto;
+		}
+	</style>
 </head>
 
 <body>
@@ -32,8 +37,8 @@
 			</div>
 			<div class="header_title">密码找回</div>
 		</header>
-		<section class="password_recovery_box">
-			<div class="error">
+		<section class="password_recovery_box login_common_mx">
+			<div class="login_error">
 				<div  v-if="isError">
 					<i></i>
 					<span>{{isErrorText}}</span>
@@ -41,45 +46,24 @@
 			</div>
 			<div class="mail_item_1" v-if="emailItem1">
 				<input type="text" class="input_cla" ref="email" v-model="email" placeholder="请输入您的邮箱地址">
-				<a href="javascript:;" @click="recovery_btn(1)" class="recovery_btn">下一步</a>
+				<a href="javascript:;" @click="recovery_btn()" class="recovery_btn">发送验证码</a>
 			</div>
 			<div class="mail_item_2" v-if="emailItem2">
 				<div class="mail_code_pass">
 					<input type="text" ref="email" v-model="email" class="input_cla">
-					<a href="javascript:;" id="mail_pass_code">获取验证码</a>
+					<a href="javascript:;" @click="emailVerifyCode">{{emailIdentCodeText}}</a>
 				</div>
 				<input type="text" class="input_cla" ref="emailCode" v-model="emailCode" placeholder="请输入验证码">
-				<a href="javascript:;" @click="recovery_btn(1)" class="recovery_btn">下一步</a>
+				<a href="javascript:;" @click="resetPassword()" class="recovery_btn">下一步</a>
 			</div>
-			<!-- <div @click="s">11</div> -->
+			<div class="mail_item_3" v-if="emailItem3">
+				<input type="password" class="input_cla" ref="password1" v-model="password1" placeholder="请输入新密码">
+				<input type="password" class="input_cla" ref="password2" v-model="password2" placeholder="确认新密码">
+				<a href="javascript:;" @click="finishResetPassword()" class="recovery_btn">确认修改</a>
+			</div>
 		</section>
-		<!-- <section class="pass_recovery_1105">
-			<div class="pass_recovery_con">
-				<div class="pass_recovery_error">
-					<div class="hidden">
-						<i></i>
-						<span>密码不一致</span>
-					</div>
-				</div>
-				<div class="pass_recovery_box">
-					<div class="mail_pass_box">
-						<div class="mail_code_pass">
-							<input type="text" id="mail_pass_one" class="input_cla" placeholder="请输入您的邮箱地址">
-							<a href="javascript:;" id="mail_pass_code">获取验证码</a>
-						</div>
-						<input type="text" id="mail_pass_two" placeholder="请输入验证码" class="input_cla">
-					</div>
-					<div class="conf_pass_box hidden">
-						<input type="text" id="conf_pass_one" placeholder="输入新密码" class="input_cla">
-						<input type="text" id="conf_pass_two" placeholder="确认密码" class="input_cla">
-					</div>
-					<a href="javascript:;" id="pass_recovery_btn" class="recovery_btn">下一步</a>
-				</div>
-			</div>
-		</section> -->
 	</div>
 
-	
     <!--script start-->
 	<script src="./static/libs/jquery-2.2.4.min.js"></script>
 	<script src="./static/libs/vue.min.js"></script>
@@ -89,19 +73,70 @@
 			el: '#v-app',
 			data: function(){
 				return {
+					emailCodeUrl: "/action/user/mail_code", // 获取验证码url
+					emailCodeValidateUrl: "/action/user/mail_code", // 确认验证码是否正确 url
+					emailPassBtnUrl: "/action/user/resetPwdByPhoneStepTwoSimple", // 提交密码 url
 					emailItem1: true,
 					emailItem2: false,
 					emailItem3: false,
+					getEmailCodeDisable: true,
+					emailIdentCodeText: '获取验证码',
+					emailCodeWaitTime: 180,
 					isError: false,
 					isErrorText: '',
 					email: '',
-					emailCode: ''
+					emailCode: '',
+					password1: '',
+					password2: ''
 				}
 			},
 			methods:{
-				emailVerifyCode(){
-					// 获取邮箱验证码
-					
+				// 邮箱验证码倒计时
+				emailCodeCountDown(){
+					var self = this;
+					if (self.emailCodeWaitTime === 0) {
+						self.getEmailCodeDisable = true;
+						self.emailIdentCodeText = "获取验证码";
+						self.emailCodeWaitTime = 180;
+						return;
+					} else {
+						self.getEmailCodeDisable = false;
+						self.emailIdentCodeText = "重新发送(" + self.emailCodeWaitTime + "s)";
+						self.emailCodeWaitTime--;
+						setTimeout(function() {
+							self.emailCodeCountDown();
+						}, 1000);
+					}
+				},
+				// 获取邮箱验证码
+				emailVerifyCode() {
+					var self = this;
+					// 检验邮箱格式和验证码倒计时
+					var validateEmail = this.validators('email').check(self.email);
+					if (!validateEmail || !self.getEmailCodeDisable) {
+						return false;
+					}
+					$.ajax({
+						type: "POST",
+						url: emailCodeUrl,
+						data: {
+							mail: self.email
+						},
+						dataType: "json",
+						success: function(data) {
+							if (data.status === 1) {
+								self.emailCodeCountDown();
+								self.isError = false;
+								self.isErrorText = '';
+							} else {
+								self.isError = true;
+								self.isErrorText = '邮箱验证码发送失败';
+							}
+						},
+						error: function() {
+							console.log("获取邮箱验证码数据失败，请稍候再试");
+						}
+					});
 				},
 				validators(type){
 					var v = {
@@ -111,60 +146,125 @@
 								var emailReg = /[\w-.]+@[\w-]+(.[\w_-]+)+/;
 								return emailReg.test(val);
 							}
-						},
+						}
 					};
 					return v[type];
 				},
-				
-				recovery_btn(v){
-					if(v === 1){
-						if(!this.validators('email').check(this.email)){
-							this.$refs.email.focus();
-							this.isError = true;
-							this.isErrorText = this.validators('email').message;
-						}else{
-							this.emailItem1 = false;
-							this.emailItem2 = true;
-						}
-						
+				// 输入邮箱点击下一步
+				recovery_btn(){
+					if(!this.validators('email').check(this.email)){
+						this.$refs.email.focus();
+						this.isError = true;
+						this.isErrorText = this.validators('email').message;
+					}else{
+						this.emailVerifyCode();
+						this.emailItem1 = false;
+						this.emailItem2 = true;
+						this.isError = false;
 					}
-					
+				},
+				// 获取验证码之后的下一步
+				resetPassword() {
+					var self = this;
+					if(self.emailCode === ''){
+						self.isError = true;
+						self.isErrorText = '邮箱验证码不能为空';
+						return ;
+					}
+					if(!self.validators('email').check(self.email)){
+						self.$refs.email.focus();
+						self.isError = true;
+						self.isErrorText = self.validators('email').message;
+						return ;
+					}
+					self.emailItem1 = false;
+					self.emailItem2 = true;
+					self.isError = false;
+					$.ajax({
+						type: "POST",
+						url: emailCodeValidateUrl,
+						data: {
+							email: self.email,
+							code: self.smsCode
+						},
+						dataType: "JSON",
+						success: function(result) {
+							if (result.status === 1) {
+								// 下一步之前验证 验证码 是否正确
+								self.emailItem2 = true;
+								self.emailItem3 = true;
+							} else {
+								//异常信息处理
+								self.isError = true;
+								self.isErrorText = result.message;
+							}
+						},
+						error: function() {
+							console.log("提交验证码数据失败，请稍候再试");
+						}
+					});
+				},
+				// 确认
+				finishResetPassword() {
+					var self = this;
+					if(self.password1 === ''){
+						self.$refs.password1.focus();
+						self.isError = true;
+						self.isErrorText = '新密码不能为空';
+						return ;
+					}
+					if($.trim(self.password1).length <6 || $.trim(self.password1).length >18){
+						self.isError = true;
+						self.isErrorText = '新密码长度为6-18位之间';
+						return ;
+					}
+					if(self.password2 === ''){
+						self.$refs.password2.focus();
+						self.isError = true;
+						self.isErrorText = '确认密码不能为空';
+						return ;
+					}
+					if($.trim(self.password2).length <6 || $.trim(self.password2).length >18 ){
+						self.isError = true;
+						self.isErrorText = '确认密码长度为6-18位之间';
+						return ;
+					}
+					if(self.password2 !== self.password1){
+						self.$refs.password2.focus();
+						self.isError = true;
+						self.isErrorText = '输入密码不一致';
+						return ;
+					}
+					self.isError = false;
+					// var pwd = CryptoJS.SHA1(self.password).toString();
+					$.ajax({
+						type: "POST",
+						url: emailPassBtnUrl,
+						data: {
+							email: self.email,
+							pwd: self.password1
+						},
+						dataType: "json",
+						success: function(data) {
+							if (data.status === 1) {
+								//需要提示重置密码成功，3s后跳转
+								alert('密码修改成功');
+								setTimeout(function() {
+									location.href = "/";
+								}, 3000);
+							} else {
+								//异常信息处理
+								self.isError = true;
+								self.isErrorText = data.message;
+							}
+						},
+						error: function() {
+							console.log("提交新密码数据失败，请稍候再试");
+						}
+					});
 				}
 			}
 		})
-        // $(function () {
-		// 	var flagName = '';
-		// 	$('#mail_pass_code').on('click', function(){
-		// 		// 倒计时
-				
-		// 	})
-		// 	$('#pass_recovery_btn').on('click', function(){
-		// 		// 下一步 1
-		// 		if(!$('.mail_pass_box').hasClass('hidden')){
-
-
-		// 			$('.pass_recovery_error').find('span').html('验证码错误');
-		// 			$('.pass_recovery_error > div').show();
-
-
-
-		// 			$('#pass_recovery_btn').html('确认修改');
-
-		// 			$('.mail_pass_box').addClass('hidden');
-		// 			$('.conf_pass_box').removeClass('hidden');
-		// 		}
-		// 		// 确认修改
-		// 		if(!$('.conf_pass_box').hasClass('hidden')){
-		// 			// 	密码不一致
-		// 			if($.trim($('#conf_pass_one').val()) !== $.trim($('#conf_pass_two').val())){
-		// 				$('.pass_recovery_error').find('span').html('密码不一致');
-		// 				$('.pass_recovery_error > div').show();
-		// 			}
-		// 			// 验证码错误
-		// 		}
-		// 		// 
-		// 	})
-        // });
     </script>
     <!--script end-->
 </body>

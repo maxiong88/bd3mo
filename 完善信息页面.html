@@ -48,28 +48,7 @@
 				<input type="text" class="input_cla" ref="email" v-model="email" placeholder="请输入您的邮箱地址">
 				<input type="password" class="input_cla" ref="password1" v-model="password1" placeholder="登录密码">
 				<input type="password" class="input_cla" ref="password2" v-model="password2" placeholder="确认密码">
-				<a href="javascript:;" @click="registerBtn()" class="recovery_btn">下一步</a>
-			</div>
-			<div class="mail_item_2" v-if="emailItem2">
-				<div tabindex="0" class="bd-upload bd-upload--text">
-					<div class="">
-
-					</div>
-					<input type="file" name="file" @change="uploadPic($event)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
-				</div>
-				<input type="text" class="input_cla" ref="nickname" v-model="nickname" placeholder="昵称">
-				<div class="check_sex">
-					<span>性别:</span>
-					<label for="" @click="sexFn(1)" :class="[sex === 1 ? 'cube-radio_selected' : '']">
-						<span class="cube-radio-ui cubeic-round-border"><i></i></span>
-						<span class="cube-radio-label">男</span>
-					</label>
-					<label for="" @click="sexFn(2)" :class="[sex === 2 ? 'cube-radio_selected' : '']">
-						<span class="cube-radio-ui cubeic-round-border"><i></i></span>
-						<span class="cube-radio-label">女</span>
-					</label>
-				</div>
-				<a href="javascript:;" @click="registerComBtn()" class="recovery_btn">完成注册</a>
+				<a href="javascript:;" @click="registerBtn()" class="recovery_btn">完成注册</a>
 			</div>
 		</section>
 	</div>
@@ -86,28 +65,14 @@
 				return {
 					registerUrl: "/action/user/mail_code", // 注册
 					emailItem1: true,
-					emailItem2: false,
 					isError: false,
 					isErrorText: '',
 					email: '',
 					password1: '',
-					password2: '',
-					nickname: '',
-					sex: ''
+					password2: ''
 				}
 			},
-			mounted(){
-				this.emailItem1 = false;
-				this.emailItem2 = true;
-			},
 			methods:{
-				uploadPic(e){
-					console.log(e)
-				},
-				sexFn(s){
-					this.sex = s;
-				},
-				// 注册点击下一步
 				registerBtn(){
 					if(!this.validators('email').check(this.email)){
 						this.$refs.email.focus();
@@ -144,38 +109,12 @@
 						return ;
 					}
 					this.isError = false;
-					this.emailItem1 = false;
-					this.emailItem2 = true;
-				},
-				// 完成注册
-				registerComBtn(){
-					var self = this;
-					if(!self.nickname){
-						alert('请输入昵称');
-						return;
-					}else if(!self.validators('nickname').check(self.nickname)){
-						alert(self.validators('nickname').message);
-						return;
-					}else if($.trim(self.nickname).length < 2){
-						alert('昵称不能少于2个字符');
-						return;
-					}else if($.trim(self.nickname).length > 10){
-						alert('昵称最长10个字符');
-						return;
-					}
-					if(!self.sex){
-						alert('请选择性别')
-						return ;
-					}
 					$.ajax({
 						type: "POST",
 						url: registerUrl,
 						data: {
 							email: self.email,
-							pwd: self.password1,
-							sex: self.sex,
-							nickname: self.nickname,
-							avatar: self.avatar
+							pwd: self.password1
 						},
 						dataType: "json",
 						success: function(data) {
@@ -183,12 +122,12 @@
 								//需要提示重置密码成功，3s后跳转
 								alert('注册成功');
 								setTimeout(function() {
-									location.href = "/";
+									location.href = "./完善信息页面.html";
 								}, 3000);
 							} else {
 								//异常信息处理
-								self.isError = true;
-								self.isErrorText = data.message;
+								this.isError = true;
+								this.isErrorText = data.message;
 							}
 						},
 						error: function() {
@@ -203,13 +142,6 @@
 							check: function (val) {
 								var emailReg = /[\w-.]+@[\w-]+(.[\w_-]+)+/;
 								return emailReg.test(val);
-							}
-						},
-						nikename: {
-							message: '昵称只能由中文、字母、数字、下划线或者短横线组成',
-							check: function (val) {
-								var nikenameReg = /^[A-Za-z0-9\u4e00-\u9fa5_-]+$/;
-								return nikenameReg.test(val);
 							}
 						}
 					};
