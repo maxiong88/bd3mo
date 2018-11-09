@@ -118,7 +118,7 @@
 					}
 					$.ajax({
 						type: "POST",
-						url: emailCodeUrl,
+						url: self.emailCodeUrl,
 						data: {
 							mail: self.email
 						},
@@ -182,7 +182,7 @@
 					self.isError = false;
 					$.ajax({
 						type: "POST",
-						url: emailCodeValidateUrl,
+						url: self.emailCodeValidateUrl,
 						data: {
 							email: self.email,
 							code: self.smsCode
@@ -239,7 +239,7 @@
 					// var pwd = CryptoJS.SHA1(self.password).toString();
 					$.ajax({
 						type: "POST",
-						url: emailPassBtnUrl,
+						url: self.emailPassBtnUrl,
 						data: {
 							email: self.email,
 							pwd: self.password1
@@ -248,7 +248,7 @@
 						success: function(data) {
 							if (data.status === 1) {
 								//需要提示重置密码成功，3s后跳转
-								alert('密码修改成功');
+								YDUI.dialog.alert('密码修改成功');
 								setTimeout(function() {
 									location.href = "/";
 								}, 3000);

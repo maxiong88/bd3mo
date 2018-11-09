@@ -52,9 +52,8 @@
 			</div>
 			<div class="mail_item_2" v-if="emailItem2">
 				<div tabindex="0" class="bd-upload bd-upload--text">
-					<div class="">
-
-					</div>
+					<!-- <div v-html="avatar"></div> -->
+					<img :src="avatar" alt="">
 					<input type="file" name="file" @change="uploadPic($event)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
 				</div>
 				<input type="text" class="input_cla" ref="nickname" v-model="nickname" placeholder="昵称">
@@ -78,6 +77,7 @@
     <!--script start-->
 	<script src="./static/libs/jquery-2.2.4.min.js"></script>
 	<script src="./static/libs/vue.min.js"></script>
+	<script src="./static/libs/ydui.js"></script>
 	<script src="./static/libs/fastclick.js"></script>
     <script>
 		window.$vm = new Vue({
@@ -93,7 +93,8 @@
 					password1: '',
 					password2: '',
 					nickname: '',
-					sex: ''
+					sex: '',
+					avatar: ''
 				}
 			},
 			mounted(){
@@ -103,6 +104,25 @@
 			methods:{
 				uploadPic(e){
 					console.log(e)
+					var self = this;
+					var file = e.target.files && e.target.files[0];
+					
+					if (!(/^image\/.*$/i.test(file.type))) {
+						YDUI.dialog.alert('请上传正确格式图片');
+						return; //不是图片 就跳出这一次循环  
+					}
+					if (file.size > 500000) {
+						YDUI.dialog.alert('请上传小于500kb图片');
+						return; //  大小 
+					}
+					//实例化FileReader API  
+					var freader = new FileReader();  
+					freader.readAsDataURL(file);  
+					freader.onload = function(e) {
+						var img = new Image();
+						img.src = e.target.result;
+						self.avatar = e.target.result;
+					}
 				},
 				sexFn(s){
 					this.sex = s;
@@ -146,30 +166,31 @@
 					this.isError = false;
 					this.emailItem1 = false;
 					this.emailItem2 = true;
+					$('.login_error').hide();
 				},
 				// 完成注册
 				registerComBtn(){
 					var self = this;
 					if(!self.nickname){
-						alert('请输入昵称');
+						YDUI.dialog.alert('请输入昵称');
 						return;
 					}else if(!self.validators('nickname').check(self.nickname)){
-						alert(self.validators('nickname').message);
+						YDUI.dialog.alert(self.validators('nickname').message);
 						return;
 					}else if($.trim(self.nickname).length < 2){
-						alert('昵称不能少于2个字符');
+						YDUI.dialog.alert('昵称不能少于2个字符');
 						return;
 					}else if($.trim(self.nickname).length > 10){
-						alert('昵称最长10个字符');
+						YDUI.dialog.alert('昵称最长10个字符');
 						return;
 					}
 					if(!self.sex){
-						alert('请选择性别')
+						YDUI.dialog.alert('请选择性别')
 						return ;
 					}
 					$.ajax({
 						type: "POST",
-						url: registerUrl,
+						url: self.registerUrl,
 						data: {
 							email: self.email,
 							pwd: self.password1,
@@ -181,7 +202,7 @@
 						success: function(data) {
 							if (data.status === 1) {
 								//需要提示重置密码成功，3s后跳转
-								alert('注册成功');
+								YDUI.dialog.alert('注册成功');
 								setTimeout(function() {
 									location.href = "/";
 								}, 3000);
@@ -205,11 +226,11 @@
 								return emailReg.test(val);
 							}
 						},
-						nikename: {
+						nickname: {
 							message: '昵称只能由中文、字母、数字、下划线或者短横线组成',
 							check: function (val) {
-								var nikenameReg = /^[A-Za-z0-9\u4e00-\u9fa5_-]+$/;
-								return nikenameReg.test(val);
+								var nicknameReg = /^[A-Za-z0-9\u4e00-\u9fa5_-]+$/;
+								return nicknameReg.test(val);
 							}
 						}
 					};

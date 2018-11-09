@@ -113,7 +113,7 @@
 
         <!----未登录状态 start---->
         <div class="sidebar_content_title">
-            <a class="full-box" href="javascript:;">
+            <a class="full-box" href="javascript:;" id="click_on_lading">
                 <div class="sidebar_content_title_pic ver-mid">
                     <img src="./upload/no_login_avatar.png" alt="">
                 </div>
@@ -203,13 +203,20 @@
         </a>
         {{#}}}
     </script>
+    <div class="landing_window">
+        <div class="landing_box">
+            <input type="text">
+            <input type="text">
+            <input type="text">
+        </div>
+    </div>
     <!--script start-->
     <script src="./static/libs/jquery-2.2.4.min.js"></script>
-<script src="./static/libs/fastclick.js"></script>
-<script src="./static/libs/ydui.js"></script>
-<script src="./static/libs/laytpl.min.js"></script>
-<script src="./static/js/utils.min.js"></script>
-<script src="./static/js/common.min.js"></script>
+    <script src="./static/libs/fastclick.js"></script>
+    <script src="./static/libs/ydui.js"></script>
+    <script src="./static/libs/laytpl.min.js"></script>
+    <script src="./static/js/utils.min.js"></script>
+    <script src="./static/js/common.min.js"></script>
     <script>
         $(function () {
             var sl = new bh.scrollList();

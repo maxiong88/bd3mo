@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+	<meta name="author" content="Yowant FE Team" />
+	<meta name="Description" content="页面说明" />
+	<meta name="Keywords" content="页面关键字" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no" />
+	<!--[禁用页面缓存 start]-->
+	<meta http-equiv="Expires" content="-1">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	<!--[禁用页面缓存 end]-->
+	<title>修改密码</title>
+	<script src="./static/libs/flexible.js"></script>
+	<link rel="stylesheet" href="./static/css/ydui.min.css" />
+	<link rel="stylesheet" href="./static/css/common.min.css"/>
+	<style>
+		body,html{
+			height: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="v-app" v-cloak>
+		<!-- 引入头部导航 -->
+		<header class="header_wrap">
+			<div class="header_back" onclick="window.history.back(-1);">
+				<div class="header_back_icon ver-mid">
+					<img src="./static/img/back@2x.png" alt="">
+				</div>
+				<div class="header_back_text ver-mid"></div>
+			</div>
+			<div class="header_title">修改密码</div>
+		</header>
+		<section class="password_recovery_box login_common_mx">
+			<div class="login_error">
+				<div  v-if="isError">
+					<i></i>
+					<span>{{isErrorText}}</span>
+				</div>
+			</div>
+			<div class="mail_item_1" v-if="emailItem1">
+				<input type="password" class="input_cla" ref="password1" v-model="password1" placeholder="请输入原密码">
+				<input type="password" class="input_cla" ref="password2" v-model="password2" placeholder="请输入新密码">
+				<input type="password" class="input_cla" ref="password3" v-model="password3" placeholder="请输入确认新密码">
+				<a href="javascript:;" @click="finishResetPassword()" class="recovery_btn">确认修改</a>
+			</div>
+		</section>
+	</div>
+
+    <!--script start-->
+	<script src="./static/libs/jquery-2.2.4.min.js"></script>
+	<script src="./static/libs/vue.min.js"></script>
+	<script src="./static/libs/fastclick.js"></script>
+    <script>
+		window.$vm = new Vue({
+			el: '#v-app',
+			data: function(){
+				return {
+					emailPassBtnUrl: "/action/user/resetPwdByPhoneStepTwoSimple", // 提交密码 url
+					emailItem1: true,
+					isError: false,
+					isErrorText: '',
+					password1: '',
+					password2: '',
+					password3: ''
+				}
+			},
+			methods:{
+				validators(type){
+					var v = {
+						email: {
+							message: '请输入正确的邮箱地址',
+							check: function (val) {
+								var emailReg = /[\w-.]+@[\w-]+(.[\w_-]+)+/;
+								return emailReg.test(val);
+							}
+						}
+					};
+					return v[type];
+				},
+				// 确认
+				finishResetPassword() {
+					var self = this;
+					if(self.password1 === ''){
+						self.$refs.password1.focus();
+						self.isError = true;
+						self.isErrorText = '原密码不能为空';
+						return ;
+					}
+					if($.trim(self.password1).length <6 || $.trim(self.password1).length >18){
+						self.isError = true;
+						self.isErrorText = '原密码长度为6-18位之间';
+						return ;
+					}
+					if(self.password1 === self.password2){
+						self.$refs.password2.focus();
+						self.isError = true;
+						self.isErrorText = '新密码不能与原密码相同';
+						return ;
+					}
+					if(self.password2 === ''){
+						self.$refs.password2.focus();
+						self.isError = true;
+						self.isErrorText = '新密码不能为空';
+						return ;
+					}
+					if($.trim(self.password2).length <6 || $.trim(self.password2).length >18){
+						self.isError = true;
+						self.isErrorText = '新密码长度为6-18位之间';
+						return ;
+					}
+					if(self.password3 === ''){
+						self.$refs.password3.focus();
+						self.isError = true;
+						self.isErrorText = '确认密码不能为空';
+						return ;
+					}
+					if($.trim(self.password3).length <6 || $.trim(self.password3).length >18){
+						self.isError = true;
+						self.isErrorText = '确认密码长度为6-18位之间';
+						return ;
+					}
+					if(self.password2 !== self.password3){
+						self.$refs.password3.focus();
+						self.isError = true;
+						self.isErrorText = '输入密码不一致';
+						return ;
+					}
+					self.isError = false;
+					// var pwd = CryptoJS.SHA1(self.password).toString();
+					$.ajax({
+						type: "POST",
+						url: self.emailPassBtnUrl,
+						data: {
+							pwd1: self.password1,
+							pwd2: self.password2
+						},
+						dataType: "json",
+						success: function(data) {
+							if (data.status === 1) {
+								//需要提示重置密码成功，3s后跳转
+								YDUI.dialog.alert('密码修改成功');
+								setTimeout(function() {
+									location.href = "/";
+								}, 3000);
+							} else {
+								//异常信息处理
+								self.isError = true;
+								self.isErrorText = data.message;
+							}
+						},
+						error: function() {
+							console.log("提交新密码数据失败，请稍候再试");
+						}
+					});
+				}
+			}
+		})
+    </script>
+    <!--script end-->
+</body>
+
+</html>
