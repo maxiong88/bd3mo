@@ -36,13 +36,13 @@
                 <i class="icon-lf"></i>
                 <span class="tou">头像</span>
                 <img src="./static/img/valkyrie/val02@2x.png" alt="头像" class="tou_img">
-               <!-- <i class="icon-lr"></i>-->
+               <i class="icon-lr"></i>
             </div>
             <div class="item_2 item_0">
                 <i class="icon-lf"></i>
                 <span class="name">昵称</span>
                 <span class="username">瑟瑟不嘚瑟</span>
-               <!-- <i class="icon-lr"></i>-->
+               <i class="icon-lr"></i>
             </div>
             <!--<div class="item_3 item_0">
                 <i class="icon-lf"></i>
@@ -93,17 +93,105 @@
         </div> -->
 
         <div class="login_exit">
-            <span>修改密码</span>
-            <span>退出登录</span>
+            <a href="./修改密码.html">修改密码</a>
+            <a href="javascript:;">退出登录</a>
         </div>
     </section>
+    <!---修改昵称-->
+    <div class="MD_personal_username">
+        <div class="MD_personal_username_tit">
+            <span class="close">取消</span>
+            <span>修改昵称</span>
+            <span class="save">保存</span>
+        </div>
+        <div class="MD_personal_username_box">
+            <input type="text" class="MD_personal_username_val">
+        </div>
+    </div>
+    <!----修改头像-->
+    <div class="MD_personal_avatar">
+        <div class="MD_personal_avatar_tit">
+            <span class="close">取消</span>
+            <span>修改头像</span>
+            <span class="save">保存</span>
+        </div>
+        <div class="MD_personal_avatar_box">
+            <div tabindex="0" class="bd-upload bd-upload--text">
+                <input type="file" name="file" id="MD_personal_avatar_input" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
+            </div>
+        </div>
+    </div>   
     <!--script start-->
     <script src="./static/libs/jquery-2.2.4.min.js"></script>
     <script src="./static/libs/fastclick.js"></script>
+    <script src="./static/libs/ydui.js"></script>
     <script src="./static/js/common.min.js"></script>
     <script>
         $(function () {
+            $('.MD_personal_box .part_1 .item_2').on('click', function(){
+                $('.MD_personal_username').addClass('on');
+                $('.MD_personal_username_val').val($.trim($(this).find('.username').html()));
+                $('.MD_personal_username_val').focus();
+            });
+            $('.MD_personal_username_tit .close').on('click', function(){
+                $('.MD_personal_username').removeClass('on');
+            });
+            $('.MD_personal_username_tit .save').on('click', function(){
+                $.ajax({
+                    url: '',
+                    type: 'post',
+                    data: {username: $('.MD_personal_username_val').val()},
+                    success:function(res){
+                        // 修改成功
+                        $('.MD_personal_username').removeClass('on');
+                    },
+                    error:function(err){
+                        YDUI.dialog.alert(JSON.stringify(err));
+                    }
+                })
+            });
+            // -----
+            $('.MD_personal_box .part_1 .item_1').on('click', function(){
+                $('.MD_personal_avatar').addClass('on');
+                $('.MD_personal_avatar_box .bd-upload').append('<img src='+$('.tou_img').attr('src')+'>')
+            });
+            $('.MD_personal_avatar_tit .close').on('click', function(){
+                $('.MD_personal_avatar').removeClass('on');
+            });
+            $('#MD_personal_avatar_input').on('change', function(e){
+                console.log(e)
+                var file = e.target.files && e.target.files[0];
+                
+                if (!(/^image\/.*$/i.test(file.type))) {
+                    YDUI.dialog.alert('请上传正确格式图片');
+                    return; //不是图片 就跳出这一次循环  
+                }
+                if (file.size > 500000) {
+                    YDUI.dialog.alert('请上传小于500kb图片');
+                    return; //  大小 
+                }
+                //实例化FileReader API  
+                var freader = new FileReader();  
+                freader.readAsDataURL(file);  
+                freader.onload = function(e) {
+                    $('.MD_personal_avatar_box .bd-upload img').attr('src', e.target.result)
 
+                }
+            });
+            $('.MD_personal_avatar_tit .save').on('click', function(){
+                $.ajax({
+                    url: '',
+                    type: 'post',
+                    data: {avatar: $('.MD_personal_avatar_box .bd-upload img').attr('src')},
+                    success:function(res){
+                        // 修改成功
+                        $('.MD_personal_avatar').removeClass('on');
+                    },
+                    error:function(err){
+                        YDUI.dialog.alert(JSON.stringify(err));
+                    }
+                })
+            })
         });
     </script>
     <!--script end-->
